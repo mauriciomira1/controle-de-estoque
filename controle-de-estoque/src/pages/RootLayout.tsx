@@ -5,10 +5,10 @@ const RootLayout = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className="w-full flex flex-col items-center">
         <Outlet />
       </main>
-      <footer>
+      <footer className="flex justify-center pt-10 pb-4">
         <span>
           Criado por{" "}
           <Link

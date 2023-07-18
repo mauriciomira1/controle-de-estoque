@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="flex justify-between bg-purple-500">
-      <span className="text-2xl">Controle de Estoque</span>
+    <header className="flex justify-between m-6">
+      <span className="font-bold uppercase">Controle de Estoque</span>
       <nav>
-        <ul>
+        <ul className="flex gap-5">
           <li>
             <Link to="/">Início</Link>
           </li>
