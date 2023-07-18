@@ -1,5 +1,5 @@
-const newItem = () => {
-  return <div>newItem</div>;
+const NewItem = () => {
+  return <div>NewItem</div>;
 };
 
-export default newItem;
+export default NewItem;

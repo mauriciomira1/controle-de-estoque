@@ -1,5 +1,5 @@
-const updateItem = () => {
-  return <div>updateItem</div>;
+const UpdateItem = () => {
+  return <div>UpdateItem</div>;
 };
 
-export default updateItem;
+export default UpdateItem;

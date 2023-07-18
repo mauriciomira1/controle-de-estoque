@@ -1,5 +1,5 @@
-const itensList = () => {
-  return <div>itensList</div>;
+const ItemsList = () => {
+  return <div>ItemsList</div>;
 };
 
-export default itensList;
+export default ItemsList;
