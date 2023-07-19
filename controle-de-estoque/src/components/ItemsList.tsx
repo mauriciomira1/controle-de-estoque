@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { products } from "../db.json";
-import ItemDetails from "../pages/ItemDetails/ItemDetails";
 
 const ItemsList = () => {
   return (
