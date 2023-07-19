@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/RootLayout";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ItemDetails from "./pages/ItemDetails/ItemDetails";
-import ItemsList from "./pages/ItensList/ItensList";
 import NewItem from "./pages/NewItem/NewItem";
 import UpdateItem from "./pages/UpdateItem/UpdateItem";
 import StockItems from "./pages/StockItems/StockItems";
@@ -21,8 +20,8 @@ const router = createBrowserRouter([
         element: <ItemDetails />,
       },
       {
-        path: "items-list",
-        element: <ItemsList />,
+        path: "stock-items",
+        element: <StockItems />,
       },
       {
         path: "new-item",
