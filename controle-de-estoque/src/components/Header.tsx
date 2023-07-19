@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="flex justify-between m-6">
+    <header className="flex justify-between m-6 w-full px-10">
       <span className="font-bold uppercase">Controle de Estoque</span>
       <nav>
         <ul className="flex gap-5">

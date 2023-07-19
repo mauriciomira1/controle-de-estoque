@@ -5,6 +5,7 @@ import ItemDetails from "./pages/ItemDetails/ItemDetails";
 import ItemsList from "./pages/ItensList/ItensList";
 import NewItem from "./pages/NewItem/NewItem";
 import UpdateItem from "./pages/UpdateItem/UpdateItem";
+import StockItems from "./pages/StockItems/StockItems";
 
 const router = createBrowserRouter([
   {

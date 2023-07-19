@@ -3,7 +3,7 @@ import Header from "../components/Header";
 
 const RootLayout = () => {
   return (
-    <>
+    <div className="flex flex-col items-center justify-between min-h-screen">
       <Header />
       <main className="w-full flex flex-col items-center">
         <Outlet />
@@ -20,7 +20,7 @@ const RootLayout = () => {
           </Link>
         </span>
       </footer>
-    </>
+    </div>
   );
 };
 
