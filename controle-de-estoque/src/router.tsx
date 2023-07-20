@@ -5,6 +5,8 @@ import ItemDetails from "./pages/ItemDetails/ItemDetails";
 import NewItem from "./pages/NewItem/NewItem";
 import UpdateItem from "./pages/UpdateItem/UpdateItem";
 import StockItems from "./pages/StockItems/StockItems";
+import loadItem from "./loader/loadItem";
+import ItemBoundary from "./errors/ItemBoundary";
 
 const router = createBrowserRouter([
   {
@@ -16,12 +18,14 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "item-details",
-        element: <ItemDetails />,
-      },
-      {
         path: "stock-items",
         element: <StockItems />,
+      },
+      {
+        path: "item-details/:productId",
+        element: <ItemDetails />,
+        loader: loadItem,
+        errorElement: <ItemBoundary />,
       },
       {
         path: "new-item",

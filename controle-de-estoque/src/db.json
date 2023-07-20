@@ -1,52 +1,50 @@
-{
-  "products": [
-    {
-      "id": 123456,
-      "name": "Chocolate Lacta",
-      "quantity": 10,
-      "category": "Doce",
-      "price": 3.99,
-      "description": "Tablete de chocolate ao leite da marca Lacta."
-    },
-    {
-      "id": 654321,
-      "name": "Refrigerante Coca-Cola",
-      "quantity": 24,
-      "category": "Bala",
-      "price": 5.49,
-      "description": "Lata de 350ml de Coca-Cola tradicional."
-    },
-    {
-      "id": 789012,
-      "name": "Biscoito Cream Cracker",
-      "quantity": 20,
-      "category": "Biscoito",
-      "price": 2.89,
-      "description": "Pacote de biscoito cream cracker."
-    },
-    {
-      "id": 345678,
-      "name": "Chiclete Trident",
-      "quantity": 5,
-      "category": "Chicle",
-      "price": 1.49,
-      "description": "Caixa com 5 unidades de chiclete sabor menta da marca Trident."
-    },
-    {
-      "id": 901234,
-      "name": "Pirulito Chupa Chups",
-      "quantity": 15,
-      "category": "Pirulito",
-      "price": 0.79,
-      "description": "Pirulito de diversos sabores da marca Chupa Chups."
-    },
-    {
-      "id": 567890,
-      "name": "Doce de Leite Viçosa",
-      "quantity": 8,
-      "category": "Doce",
-      "price": 4.29,
-      "description": "Pote de doce de leite cremoso da marca Viçosa."
-    }
-  ]
-}
+[
+  {
+    "id": 123456,
+    "name": "Chocolate Lacta",
+    "quantity": 10,
+    "category": "Doce",
+    "price": 3.99,
+    "description": "Tablete de chocolate ao leite da marca Lacta."
+  },
+  {
+    "id": 654321,
+    "name": "Refrigerante Coca-Cola",
+    "quantity": 24,
+    "category": "Bala",
+    "price": 5.49,
+    "description": "Lata de 350ml de Coca-Cola tradicional."
+  },
+  {
+    "id": 789012,
+    "name": "Biscoito Cream Cracker",
+    "quantity": 20,
+    "category": "Biscoito",
+    "price": 2.89,
+    "description": "Pacote de biscoito cream cracker."
+  },
+  {
+    "id": 345678,
+    "name": "Chiclete Trident",
+    "quantity": 5,
+    "category": "Chicle",
+    "price": 1.49,
+    "description": "Caixa com 5 unidades de chiclete sabor menta da marca Trident."
+  },
+  {
+    "id": 901234,
+    "name": "Pirulito Chupa Chups",
+    "quantity": 15,
+    "category": "Pirulito",
+    "price": 0.79,
+    "description": "Pirulito de diversos sabores da marca Chupa Chups."
+  },
+  {
+    "id": 567890,
+    "name": "Doce de Leite Viçosa",
+    "quantity": 8,
+    "category": "Doce",
+    "price": 4.29,
+    "description": "Pote de doce de leite cremoso da marca Viçosa."
+  }
+]
