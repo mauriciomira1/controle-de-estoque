@@ -1,6 +1,9 @@
+import axios from "axios";
 import DashboardWindow from "../../components/DashboardWindow";
 
 const Dashboard = () => {
+  const response = axios.get("http://localhost:3000/products");
+  
   return (
     <div className="flex items-center flex-col mb-10 w-full">
       <h1 className="text-4xl mb-6">Dashboard</h1>
@@ -18,7 +21,7 @@ const Dashboard = () => {
             <tr className="pl-2 py-2 items-center flex">
               <td className="w-3/5 text-left">Biscoito mabel</td>
               <td className="w-2/5 text-center">
-                <button className="bg-gray-700 rounded px-3 py-1 hover:bg-gray-600 duration-150">
+                <button className="bg-blue-800 rounded px-3 py-1 hover:bg-blue-700 duration-150">
                   Ver
                 </button>
               </td>
@@ -40,7 +43,7 @@ const Dashboard = () => {
               <td className="w-2/4 text-left">7 Batata Ruffles</td>
               <td className="w-1/4 text-center">8</td>
               <td className="w-1/4 text-center">
-                <button className="bg-gray-700 rounded px-3 py-1 hover:bg-gray-600 duration-150">
+                <button className="bg-blue-800 rounded px-3 py-1 hover:bg-blue-700 duration-150">
                   Ver
                 </button>
               </td>

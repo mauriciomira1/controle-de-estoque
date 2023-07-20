@@ -1,24 +1,27 @@
 import { Link } from "react-router-dom";
 import productsData from "../../../db.json";
 import { useState } from "react";
-
-interface Products {
-  id: number;
-  name: string;
-  quantity: number;
-  category: string;
-  price: number;
-  description: string;
-}
+import axios from "axios";
 
 const ItemsList = () => {
-  const [products, setProducts] = useState<Products[]>(productsData.products);
+  const [products, setProducts] = useState(productsData.products);
 
-  const handleDelete = (productId: number) => {
+  const handleDelete = async (productId: number) => {
+    try {
+      await axios.delete(`http://localhost:3000/products/${productId}`);
+    } catch (error) {
+      console.error("Erro ao deletar item: ", error);
+    }
     setProducts((prevProducts) =>
       prevProducts.filter((item) => item.id !== productId)
     );
   };
+
+  /*   const handleDelete = (productId: number) => {
+    setProducts((prevProducts) =>
+      prevProducts.filter((item) => item.id !== productId)
+    );
+  }; */
 
   return (
     <table className="my-8 flex flex-col justify-center items-center w-full">
@@ -47,6 +50,7 @@ const ItemsList = () => {
             </button>
             <button
               className="px-2 py-1 rounded text-gray-950 font-semibold bg-red-600 hover:opacity-90 duration-150"
+              // eslint-disable-next-line @typescript-eslint/no-misused-promises
               onClick={() => handleDelete(product.id)}
             >
               Excluir

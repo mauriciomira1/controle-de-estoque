@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 
 interface ProductProps {
@@ -11,6 +12,14 @@ interface ProductProps {
 
 const ItemDetails: React.FC = () => {
   const product = useLoaderData() as ProductProps;
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`http://localhost:3000/products/${product.id}`);
+      window.location.href = "http://localhost:5173/stock-items";
+    } catch (error) {
+      console.error("Erro ao deletar item: ", error);
+    }
+  };
 
   return (
     <section>
@@ -19,7 +28,11 @@ const ItemDetails: React.FC = () => {
         <button className="w-24 py-2 rounded text-gray-950 font-semibold bg-gray-100 hover:opacity-80 duration-150">
           Atualizar
         </button>
-        <button className="w-24 py-2 rounded text-gray-950 font-semibold bg-red-600 hover:opacity-80 duration-150">
+        <button
+          className="w-24 py-2 rounded text-gray-950 font-semibold bg-red-600 hover:opacity-80 duration-150"
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          onClick={handleDelete}
+        >
           Excluir
         </button>
       </div>
