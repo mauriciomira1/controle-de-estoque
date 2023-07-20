@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/RootLayout";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import ItemDetails from "./pages/ItemDetails/ItemDetails";
+import ItemDetails from "./pages/ItemDetails/itemDetails";
 import NewItem from "./pages/NewItem/NewItem";
 import UpdateItem from "./pages/UpdateItem/UpdateItem";
 import StockItems from "./pages/StockItems/StockItems";

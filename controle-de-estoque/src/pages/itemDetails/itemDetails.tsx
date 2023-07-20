@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import productsData from "../../db.json";
 
 interface ProductProps {
   id: number;
@@ -11,15 +9,8 @@ interface ProductProps {
   description: string;
 }
 
-const ItemDetails = () => {
+const ItemDetails: React.FC = () => {
   const product = useLoaderData() as ProductProps;
-  const [products, setProducts] = useState<ProductProps[]>(productsData);
-
-  const handleDelete = () => {
-    setProducts((prevProducts) =>
-      prevProducts.filter((item) => item.id !== product.id)
-    );
-  };
 
   return (
     <section>
@@ -28,10 +19,7 @@ const ItemDetails = () => {
         <button className="w-24 py-2 rounded text-gray-950 font-semibold bg-gray-100 hover:opacity-80 duration-150">
           Atualizar
         </button>
-        <button
-          className="w-24 py-2 rounded text-gray-950 font-semibold bg-red-600 hover:opacity-80 duration-150"
-          onClick={() => handleDelete()}
-        >
+        <button className="w-24 py-2 rounded text-gray-950 font-semibold bg-red-600 hover:opacity-80 duration-150">
           Excluir
         </button>
       </div>
