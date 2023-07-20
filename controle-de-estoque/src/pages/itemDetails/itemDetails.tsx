@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 
@@ -12,8 +13,10 @@ interface ProductProps {
 
 const ItemDetails: React.FC = () => {
   const product = useLoaderData() as ProductProps;
+
   const handleDelete = async () => {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       await axios.delete(`http://localhost:3000/products/${product.id}`);
       window.location.href = "http://localhost:5173/stock-items";
     } catch (error) {
