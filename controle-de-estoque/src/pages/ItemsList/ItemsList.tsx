@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import productsData from "../../db.json";
+import { useState } from "react";
 
 interface Products {
   id: number;
@@ -10,15 +11,13 @@ interface Products {
   description: string;
 }
 
-const products: Products[] = productsData;
-
 const ItemsList = () => {
-const [products, setProducts] = useStat
+  const [products, setProducts] = useState<Products[]>(productsData);
 
   const handleDelete = (productId: number) => {
-    return products.filter((item) => {
-      return item.id !== productId;
-    });
+    setProducts((prevProducts) =>
+      prevProducts.filter((item) => item.id !== productId)
+    );
   };
 
   return (
