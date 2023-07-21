@@ -143,15 +143,6 @@
       "price": 1.49,
       "description": "Caixa com 5 unidades de chiclete sabor morango da marca Trident.",
       "dataDeCadastro": "13/06/2023"
-    },
-    {
-      "name": "Bala Dadinho",
-      "quantity": 3,
-      "price": 9.98,
-      "category": "bala",
-      "description": "100un",
-      "dataDeCadastro": "21/07/2023",
-      "id": 1000000
     }
   ]
 }
