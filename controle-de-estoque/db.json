@@ -10,15 +10,6 @@
       "dataDeCadastro": "10/05/2023"
     },
     {
-      "id": 654321,
-      "name": "Refrigerante Coca-Cola",
-      "quantity": 24,
-      "category": "bala",
-      "price": 5.49,
-      "description": "Lata de 350ml de Coca-Cola tradicional.",
-      "dataDeCadastro": "12/05/2023"
-    },
-    {
       "id": 789012,
       "name": "Biscoito Cream Cracker",
       "quantity": 20,
@@ -136,15 +127,6 @@
       "dataDeCadastro": "07/06/2023"
     },
     {
-      "id": 101010,
-      "name": "Bala Fini",
-      "quantity": 7,
-      "category": "bala",
-      "price": 1.89,
-      "description": "Pacote de balas Fini sortidas.",
-      "dataDeCadastro": "09/06/2023"
-    },
-    {
       "id": 121212,
       "name": "Biscoito de Água e Sal",
       "quantity": 35,
@@ -163,13 +145,13 @@
       "dataDeCadastro": "13/06/2023"
     },
     {
-      "id": 141414,
-      "name": "Bala Soft",
-      "quantity": 9,
+      "name": "Bala Dadinho",
+      "quantity": 3,
+      "price": 9.98,
       "category": "bala",
-      "price": 1.29,
-      "description": "Bala macia de diversos sabores.",
-      "dataDeCadastro": "15/06/2023"
+      "description": "100un",
+      "dataDeCadastro": "21/07/2023",
+      "id": 1000000
     }
   ]
 }

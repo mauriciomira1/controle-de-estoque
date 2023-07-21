@@ -38,16 +38,24 @@ const Dashboard = () => {
   // Cálculo de itens recentes
   let quantidadeItemsRecentes = 0;
   const listaItemsRecentes: ProductProps[] = [];
-  items.map((item) => {
-    const dataAtual = new Date().toLocaleString("pt-BR", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
-    const partesData = item.dataDeCadastro.split("/");
-    const dataCadastrado = new Date(partesData[2]);
 
-    if (dataAtual - item.dataAtual);
+  // Função para converter a string em um objeto Date
+  function converterStringParaData(dataStr: string): Date {
+    const partesData: number[] = dataStr
+      .split("/")
+      .map((parte) => parseInt(parte, 10));
+    return new Date(partesData[2], partesData[1] - 1, partesData[0]);
+  }
+
+  items.map((item) => {
+    const dataAtual: Date = new Date();
+    const dataComparar: Date = converterStringParaData(item.dataDeCadastro);
+    const subtracaoEmMilisegundos: number =
+      dataAtual.getTime() - dataComparar.getTime();
+    const diferencaEmDias: number =
+      subtracaoEmMilisegundos / (1000 * 60 * 60 * 24);
+    if (diferencaEmDias < 10) listaItemsRecentes.push(item);
+    quantidadeItemsRecentes = Number(listaItemsRecentes.length);
   });
 
   // Cálculo de itens acabando (se quantidade < 5un)
@@ -88,20 +96,30 @@ const Dashboard = () => {
                     <th className="w-3/5 text-left">Itens recentes</th>
                     <th className="w-2/5">Ações</th>
                   </tr>
-                  <tr className="pl-2 py-2 items-center flex">
-                    <td className="w-3/5 text-left">Biscoito mabel</td>
-                    <td className="w-2/5 text-center">
-                      <button className="bg-blue-800 rounded px-3 py-1 hover:bg-blue-700 duration-150">
-                        Ver
-                      </button>
-                    </td>
-                  </tr>
+                  {listaItemsRecentes.map((item) => (
+                    <tr className="pl-2 py-2 items-center flex" key={item.id}>
+                      <td className="w-3/5 text-left">{item.name}</td>
+                      <td className="w-2/5 text-center">
+                        <button className="bg-blue-800 rounded px-3 py-1 hover:bg-blue-700 duration-150">
+                          <Link
+                            to={`http://localhost:5173/item-details/${item.id}`}
+                            className="text-white"
+                          >
+                            Ver
+                          </Link>
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
             <div className="flex flex-col items-center gap-4">
               <div className="flex justify-center gap-4 w-full">
-                <DashboardWindow title="Itens recentes" quantity={2} />
+                <DashboardWindow
+                  title="Itens recentes"
+                  quantity={quantidadeItemsRecentes}
+                />
                 <DashboardWindow title="Itens acabando" quantity={total} />
               </div>
               <table className="w-full flex flex-col justify-center">
@@ -112,7 +130,7 @@ const Dashboard = () => {
                     <th className="w-1/4">Ações</th>
                   </tr>
                   {listaItemsAcabando.map((item) => (
-                    <tr className="pl-2 py-2 flex items-center">
+                    <tr className="pl-2 py-2 flex items-center" key={item.id}>
                       <td className="w-2/4 text-left">{item.name}</td>
                       <td className="w-1/4 text-center">{item.quantity}</td>
                       <td className="w-1/4 text-center">

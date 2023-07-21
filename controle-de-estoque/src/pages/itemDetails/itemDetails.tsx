@@ -9,6 +9,7 @@ interface ProductProps {
   category: string;
   price: number;
   description: string;
+  dataDeCadastro: string;
 }
 
 const ItemDetails: React.FC = () => {
@@ -53,8 +54,10 @@ const ItemDetails: React.FC = () => {
         </div>
       </div>
       <p className="text-xl font-light">{product.description}</p>
-      <p className="text-gray-400 text-sm italic">Cadastrado em: 12/02/2023</p>
-      <p className="text-gray-400 text-sm italic">Atualizado em: 12/02/2023</p>
+      <p className="text-gray-400 text-sm italic">
+        Cadastrado em: {product.dataDeCadastro}
+      </p>
+      <p className="text-gray-400 text-sm italic">Atualizado em: 21/07/2023</p>
     </section>
   );
 };
