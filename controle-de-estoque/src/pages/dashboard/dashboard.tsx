@@ -5,6 +5,7 @@
 import axios from "axios";
 import DashboardWindow from "../../components/DashboardWindow";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface ProductProps {
   id: number;
@@ -13,6 +14,7 @@ interface ProductProps {
   category: string;
   price: number;
   description: string;
+  dataDeCadastro: string;
 }
 
 const Dashboard = () => {
@@ -24,14 +26,39 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    getData();
+    void getData();
   }, []);
 
+  // Cálculo de inventário total
   const quantidade = items.reduce(
     (totalDeItems, item) => totalDeItems + item.quantity,
     0
   );
-  console.log(quantidade);
+
+  // Cálculo de itens recentes
+  let quantidadeItemsRecentes = 0;
+  const listaItemsRecentes: ProductProps[] = [];
+  items.map((item) => {
+    const dataAtual = new Date().toLocaleString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+    const partesData = item.dataDeCadastro.split("/");
+    const dataCadastrado = new Date(partesData[2]);
+
+    if (dataAtual - item.dataAtual);
+  });
+
+  // Cálculo de itens acabando (se quantidade < 5un)
+  let total = 0;
+  const listaItemsAcabando: ProductProps[] = [];
+  items.map((item) => {
+    if (item.quantity < 5) {
+      listaItemsAcabando.push(item);
+      total++;
+    }
+  });
 
   return (
     <>
@@ -75,7 +102,7 @@ const Dashboard = () => {
             <div className="flex flex-col items-center gap-4">
               <div className="flex justify-center gap-4 w-full">
                 <DashboardWindow title="Itens recentes" quantity={2} />
-                <DashboardWindow title="Itens acabando" quantity={1} />
+                <DashboardWindow title="Itens acabando" quantity={total} />
               </div>
               <table className="w-full flex flex-col justify-center">
                 <tbody>
@@ -84,15 +111,22 @@ const Dashboard = () => {
                     <th className="w-1/4">Qtd</th>
                     <th className="w-1/4">Ações</th>
                   </tr>
-                  <tr className="pl-2 py-2 flex items-center">
-                    <td className="w-2/4 text-left">7 Batata Ruffles</td>
-                    <td className="w-1/4 text-center">8</td>
-                    <td className="w-1/4 text-center">
-                      <button className="bg-blue-800 rounded px-3 py-1 hover:bg-blue-700 duration-150">
-                        Ver
-                      </button>
-                    </td>
-                  </tr>
+                  {listaItemsAcabando.map((item) => (
+                    <tr className="pl-2 py-2 flex items-center">
+                      <td className="w-2/4 text-left">{item.name}</td>
+                      <td className="w-1/4 text-center">{item.quantity}</td>
+                      <td className="w-1/4 text-center">
+                        <button className="bg-blue-800 rounded px-3 py-1 hover:bg-blue-700 duration-150">
+                          <Link
+                            to={`http://localhost:5173/item-details/${item.id}`}
+                            className="text-white"
+                          >
+                            Ver
+                          </Link>
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>

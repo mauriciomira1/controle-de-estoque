@@ -2,14 +2,6 @@ import axios from "axios";
 import { FormEvent, useState, useEffect } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 
-interface newProductProps {
-  name: string;
-  quantity: number;
-  price: number;
-  category: string;
-  description: string;
-}
-
 const NewItem = () => {
   const [successBtn, setSuccessBtn] = useState<boolean>(false);
   useEffect(() => {
@@ -22,12 +14,13 @@ const NewItem = () => {
     }
   }, [successBtn]);
 
-  const [newProduct, setNewProduct] = useState<newProductProps>({
+  const [newProduct, setNewProduct] = useState({
     name: "",
     quantity: "",
     price: "",
     category: "",
     description: "",
+    dataDeCadastro: "",
   });
 
   const handleChange = (
@@ -41,9 +34,26 @@ const NewItem = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const novaData = new Date();
+    const dataDeCadastro = novaData.toLocaleString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+
+    const newProductWithNumberQuantity = {
+      ...newProduct,
+      quantity: Number(newProduct.quantity),
+      price: Number(newProduct.price),
+      dataDeCadastro: dataDeCadastro,
+    };
+
     void (async () => {
       try {
-        await axios.post("http://localhost:3000/products", newProduct);
+        await axios.post(
+          "http://localhost:3000/products",
+          newProductWithNumberQuantity
+        );
         console.log("requisição enviada com sucesso");
         setSuccessBtn(true);
       } catch (error) {
@@ -56,6 +66,7 @@ const NewItem = () => {
       price: "",
       category: "",
       description: "",
+      dataDeCadastro: "",
     });
   };
 
@@ -81,7 +92,7 @@ const NewItem = () => {
             name="quantity"
             id="quantity"
             className="px-2 py-2 rounded bg-gray-950 w-full text-gray-50"
-            value={Number(newProduct.quantity)}
+            value={+newProduct.quantity}
             onChange={handleChange}
             required
           />
@@ -93,7 +104,7 @@ const NewItem = () => {
             name="price"
             id="price"
             className="px-2 py-2 rounded bg-gray-950 w-full text-gray-50"
-            value={newProduct.price}
+            value={+newProduct.price}
             onChange={handleChange}
             required
           />
@@ -108,9 +119,7 @@ const NewItem = () => {
             onChange={handleChange}
             required
           >
-            <option disabled selected>
-              Selecione
-            </option>
+            <option selected>Selecione</option>
             <option value="bala">Bala</option>
             <option value="biscoito">Biscoito</option>
             <option value="chicle">Chicle</option>

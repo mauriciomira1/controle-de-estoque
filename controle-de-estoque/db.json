@@ -6,7 +6,8 @@
       "quantity": 10,
       "category": "doce",
       "price": 3.99,
-      "description": "Tablete de chocolate ao leite da marca Lacta."
+      "description": "Tablete de chocolate ao leite da marca Lacta.",
+      "dataDeCadastro": "10/05/2023"
     },
     {
       "id": 654321,
@@ -14,7 +15,8 @@
       "quantity": 24,
       "category": "bala",
       "price": 5.49,
-      "description": "Lata de 350ml de Coca-Cola tradicional."
+      "description": "Lata de 350ml de Coca-Cola tradicional.",
+      "dataDeCadastro": "12/05/2023"
     },
     {
       "id": 789012,
@@ -22,7 +24,8 @@
       "quantity": 20,
       "category": "biscoito",
       "price": 2.89,
-      "description": "Pacote de biscoito cream cracker."
+      "description": "Pacote de biscoito cream cracker.",
+      "dataDeCadastro": "14/05/2023"
     },
     {
       "id": 345678,
@@ -30,7 +33,143 @@
       "quantity": 5,
       "category": "chicle",
       "price": 1.49,
-      "description": "Caixa com 5 unidades de chiclete sabor menta da marca Trident."
+      "description": "Caixa com 5 unidades de chiclete sabor menta da marca Trident.",
+      "dataDeCadastro": "16/05/2023"
+    },
+    {
+      "id": 789013,
+      "name": "Paçoca",
+      "quantity": 2,
+      "price": 4.49,
+      "category": "doce",
+      "description": "Moreninha do rio",
+      "dataDeCadastro": "18/05/2023"
+    },
+    {
+      "id": 789014,
+      "name": "Drops Halls",
+      "quantity": 3,
+      "price": 12.98,
+      "category": "bala",
+      "description": "Halls Menta",
+      "dataDeCadastro": "20/05/2023"
+    },
+    {
+      "id": 111111,
+      "name": "Bala de Goma",
+      "quantity": 15,
+      "category": "bala",
+      "price": 0.99,
+      "description": "Bala de goma sortida.",
+      "dataDeCadastro": "22/05/2023"
+    },
+    {
+      "id": 222222,
+      "name": "Chiclete Bubbaloo",
+      "quantity": 8,
+      "category": "chiclete",
+      "price": 1.79,
+      "description": "Pacote de chiclete Bubbaloo sabor morango.",
+      "dataDeCadastro": "24/05/2023"
+    },
+    {
+      "id": 333333,
+      "name": "Pirulito Arcor",
+      "quantity": 12,
+      "category": "pirulito",
+      "price": 0.75,
+      "description": "Pirulito de sabores sortidos da marca Arcor.",
+      "dataDeCadastro": "26/05/2023"
+    },
+    {
+      "id": 444444,
+      "name": "Biscoito Wafer",
+      "quantity": 6,
+      "category": "biscoito",
+      "price": 3.99,
+      "description": "Pacote de biscoito wafer com recheio de chocolate.",
+      "dataDeCadastro": "28/05/2023"
+    },
+    {
+      "id": 555555,
+      "name": "Bala Butter Toffees",
+      "quantity": 30,
+      "category": "bala",
+      "price": 2.49,
+      "description": "Bala mastigável Butter Toffees.",
+      "dataDeCadastro": "30/05/2023"
+    },
+    {
+      "id": 666666,
+      "name": "Chiclete Trident Hortelã",
+      "quantity": 1,
+      "category": "chiclete",
+      "price": 1.99,
+      "description": "Caixa com 5 unidades de chiclete sabor hortelã da marca Trident.",
+      "dataDeCadastro": "01/06/2023"
+    },
+    {
+      "id": 777777,
+      "name": "Doce de Leite",
+      "quantity": 18,
+      "category": "doce",
+      "price": 4.99,
+      "description": "Pote de doce de leite pastoso.",
+      "dataDeCadastro": "03/06/2023"
+    },
+    {
+      "id": 888888,
+      "name": "Biscoito Recheado",
+      "quantity": 25,
+      "category": "biscoito",
+      "price": 2.29,
+      "description": "Pacote de biscoito recheado sabor chocolate.",
+      "dataDeCadastro": "05/06/2023"
+    },
+    {
+      "id": 999999,
+      "name": "Pirulito de Chocolate",
+      "quantity": 4,
+      "category": "pirulito",
+      "price": 3.49,
+      "description": "Pirulito de chocolate ao leite.",
+      "dataDeCadastro": "07/06/2023"
+    },
+    {
+      "id": 101010,
+      "name": "Bala Fini",
+      "quantity": 7,
+      "category": "bala",
+      "price": 1.89,
+      "description": "Pacote de balas Fini sortidas.",
+      "dataDeCadastro": "09/06/2023"
+    },
+    {
+      "id": 121212,
+      "name": "Biscoito de Água e Sal",
+      "quantity": 35,
+      "category": "biscoito",
+      "price": 1.59,
+      "description": "Pacote de biscoito de água e sal.",
+      "dataDeCadastro": "11/06/2023"
+    },
+    {
+      "id": 131313,
+      "name": "Chiclete Trident Morango",
+      "quantity": 11,
+      "category": "chiclete",
+      "price": 1.49,
+      "description": "Caixa com 5 unidades de chiclete sabor morango da marca Trident.",
+      "dataDeCadastro": "13/06/2023"
+    },
+    {
+      "id": 141414,
+      "name": "Bala Soft",
+      "quantity": 9,
+      "category": "bala",
+      "price": 1.29,
+      "description": "Bala macia de diversos sabores.",
+      "dataDeCadastro": "15/06/2023"
     }
   ]
 }
