@@ -103,7 +103,7 @@ const Dashboard = () => {
                         <button className="bg-blue-800 rounded px-3 py-1 hover:bg-blue-700 duration-150">
                           <Link
                             to={`http://localhost:5173/item-details/${item.id}`}
-                            className="text-white"
+                            className="text-white hover:text-white"
                           >
                             Ver
                           </Link>
@@ -137,7 +137,7 @@ const Dashboard = () => {
                         <button className="bg-blue-800 rounded px-3 py-1 hover:bg-blue-700 duration-150">
                           <Link
                             to={`http://localhost:5173/item-details/${item.id}`}
-                            className="text-white"
+                            className="text-white hover:text-white"
                           >
                             Ver
                           </Link>
