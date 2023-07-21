@@ -103,6 +103,9 @@ const NewItem = () => {
             type="number"
             name="price"
             id="price"
+            min={0.01}
+            step={0.01}
+            ref
             className="px-2 py-2 rounded bg-gray-950 w-full text-gray-50"
             value={+newProduct.price}
             onChange={handleChange}
