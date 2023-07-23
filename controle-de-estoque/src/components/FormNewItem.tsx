@@ -1,42 +1,58 @@
-import axios from "axios"; // Importa a biblioteca axios para fazer requisições HTTP
-import { FormEvent, useState, useEffect } from "react"; // Importa os hooks useState, useEffect e o evento FormEvent do React
-import { AiFillCheckCircle } from "react-icons/ai"; // Importa o ícone AiFillCheckCircle da biblioteca react-icons
+import { AiFillCheckCircle } from "react-icons/ai";
+import { useState, useEffect } from "react";
 
-const NewItem = () => {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Impede que o formulário seja enviado de forma padrão, evitando o recarregamento da página
-    const novaData = new Date(); // Cria um novo objeto de data
-    const dataDeCadastro = novaData.toLocaleString("pt-BR", {
-      // Formata a data atual no formato "dd/MM/yyyy"
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
+interface ProductProps {
+  id: number;
+  name: string;
+  quantity: number;
+  category: string;
+  price: number;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+}
 
-    void (async () => {
-      try {
-        // Faz uma requisição POST usando a biblioteca axios para enviar o novo produto ao servidor
-        await axios.post(
-          "http://localhost:3000/products", // URL da API para adicionar produtos
-          newProductWithNumberQuantity // Dados do novo produto
-        );
-        console.log("requisição enviada com sucesso");
-        setSuccessBtn(true); // Ativa o botão de sucesso após a requisição ser enviada
-      } catch (error) {
-        console.log("requisição falhou");
-      }
-    })();
-
-    // Limpa os campos do formulário após o envio dos dados
-    setNewProduct({
-      name: "",
-      quantity: 0,
-      price: 0,
-      category: "",
-      description: "",
-      dataDeCadastro: "",
-    });
+const FormNewItem = ({ productToUpdate }) => {
+  const defaultProduct = {
+    name: "",
+    quantity: 0,
+    price: 0,
+    category: "",
+    description: "",
   };
+  // Estado para armazenar os dados do novo produto
+  const [newProduct, setNewProduct] = useState<ProductProps>(
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    productToUpdate ? productToUpdate : defaultProduct
+  );
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    // Função para atualizar o estado do novo produto quando o usuário digita nos campos do formulário
+    const { name, value } = e.target;
+    setNewProduct({ ...newProduct, [name]: value });
+  };
+
+  /*   const newProductWithNumberQuantity = {
+    ...newProduct,
+    quantity: Number(newProduct.quantity),
+    price: Number(newProduct.price),
+  }; */
+
+  const [successBtn, setSuccessBtn] = useState<boolean>(false); // Estado para controlar a exibição do botão de sucesso
+  useEffect(() => {
+    // Efeito para limpar a exibição do botão de sucesso após 1 segundo
+    if (successBtn) {
+      const timer = setTimeout(() => {
+        setSuccessBtn(false);
+      }, 1000);
+
+      return () => clearTimeout(timer); // Limpa o timer ao desmontar o componente
+    }
+  }, [successBtn]); // Executa o efeito sempre que o estado successBtn é alterado
 
   return (
     // Formulário para adicionar um novo produto
@@ -129,4 +145,4 @@ const NewItem = () => {
   );
 };
 
-export default NewItem;
+export default FormNewItem;

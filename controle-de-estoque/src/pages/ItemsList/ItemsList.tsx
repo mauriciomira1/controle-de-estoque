@@ -1,64 +1,27 @@
-import { Link } from "react-router-dom";
-import productsData from "../../../db.json";
-import { useState } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom"; // Importa o componente Link da biblioteca react-router-dom para criar links de navegação
+import productsData from "../../../db.json"; // Importa os dados dos produtos de um arquivo JSON (db.json)
+import { useState } from "react"; // Importa o hook useState do React para gerenciar o estado do componente
+import axios from "axios"; // Importa a biblioteca axios para fazer requisições HTTP
+import ItemsTable from "../../components/ItemsTable";
 
 const ItemsList = () => {
-  const [products, setProducts] = useState(productsData.products);
+  const [products, setProducts] = useState(productsData.products); // Estado que armazena os dados dos produtos a serem exibidos na lista
 
   const handleDelete = async (productId: number) => {
+    // Função assíncrona para lidar com a exclusão de um item da lista pelo ID
     try {
-      await axios.delete(`http://localhost:3000/products/${productId}`);
+      await axios.delete(`http://localhost:3000/products/${productId}`); // Faz uma requisição DELETE usando a biblioteca axios para remover o produto do servidor
     } catch (error) {
-      console.error("Erro ao deletar item: ", error);
+      console.error("Erro ao deletar item: ", error); // Exibe um erro no console caso ocorra um problema na requisição
     }
     setProducts((prevProducts) =>
       prevProducts.filter((item) => item.id !== productId)
-    );
+    ); // Atualiza o estado para remover o produto da lista localmente, sem precisar fazer uma nova requisição para obter a lista atualizada do servidor
   };
 
-  /*   const handleDelete = (productId: number) => {
-    setProducts((prevProducts) =>
-      prevProducts.filter((item) => item.id !== productId)
-    );
-  }; */
-
   return (
-    <table className="my-8 flex flex-col justify-center items-center w-full">
-      <tr className="bg-gray-950 px-4 py-5 my-3 rounded w-full flex">
-        <th className="w-2/12 text-left">ID</th>
-        <th className="w-4/12 text-left">Nome</th>
-        <th className="w-2/12 text-left">Em estoque</th>
-        <th className="w-2/12 text-left">Categoria</th>
-        <th className="w-2/12 text-left">Ações</th>
-      </tr>
-      {products.map((product) => (
-        <tr className="w-full my-3 flex px-4 items-center" key={product.id}>
-          <td className="w-2/12 text-left">{product.id}</td>
-          <td className="w-4/12 text-left">{product.name}</td>
-          <td className="w-2/12 text-left">{product.quantity}</td>
-          <td className="w-2/12 text-left">{product.category}</td>
-          <td className="w-2/12 text-left flex gap-3">
-            <Link
-              to={`/item-details/${product.id}`}
-              className="px-2 py-1 rounded text-gray-950 font-semibold bg-blue-600 hover:bg-blue-500 hover:text-gray-950 duration-150"
-            >
-              Ver
-            </Link>
-            <button className="px-2 py-1 rounded text-gray-950 font-semibold bg-gray-100 hover:opacity-90 duration-150">
-              Atualizar
-            </button>
-            <button
-              className="px-2 py-1 rounded text-gray-950 font-semibold bg-red-600 hover:opacity-90 duration-150"
-              // eslint-disable-next-line @typescript-eslint/no-misused-promises
-              onClick={() => handleDelete(product.id)}
-            >
-              Excluir
-            </button>
-          </td>
-        </tr>
-      ))}
-    </table>
+    // Tabela para exibir a lista de produtos
+    <ItemsTable />
   );
 };
 

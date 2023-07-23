@@ -1,14 +1,15 @@
-/* import ItemsList from "../../components/ItemsList"; */
-import ItemsList from "../ItemsList/ItemsList";
-import NewItem from "../NewItem/NewItem";
-import { useState } from "react";
+import ItemsList from "../ItemsList/ItemsList"; // Importa o componente ItemsList que representa a lista de itens em estoque
+import NewItem from "../NewItem/NewItem"; // Importa o componente NewItem que representa o formulário para criar um novo item
+import { useState } from "react"; // Importa o hook useState do React para gerenciar o estado do componente
 
 const StockItems = () => {
-  const [activeClass, setActiveClass] = useState("list");
+  // Componente StockItems, responsável por exibir a página de itens em estoque
+  const [activeClass, setActiveClass] = useState("list"); // Estado para controlar a classe ativa do menu de navegação
 
   return (
     <div className="flex flex-col w-full p-6">
       <h1 className="text-5xl mb-10">Stock Items</h1>
+      {/* Navegação com opções para listar todos os itens e criar um novo item */}
       <nav>
         <ul className={`w-full border-gray-400 border-b-2 flex gap-10 `}>
           <li
@@ -17,7 +18,7 @@ const StockItems = () => {
             }`}
             onClick={() => setActiveClass("list")}
           >
-            Todos os items
+            Todos os itens
           </li>
           <li
             className={`hover:cursor-pointer duration-100 border-gray-100 h-10 px-6 ${
@@ -29,6 +30,7 @@ const StockItems = () => {
           </li>
         </ul>
       </nav>
+      {/* Renderiza o componente ItemsList ou NewItem com base na classe ativa */}
       {activeClass === "list" ? <ItemsList /> : <NewItem />}
     </div>
   );

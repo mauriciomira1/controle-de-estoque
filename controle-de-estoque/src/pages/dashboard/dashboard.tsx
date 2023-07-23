@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import axios from "axios";
 import DashboardWindow from "../../components/DashboardWindow";
 import { useEffect, useState } from "react";
@@ -21,7 +17,9 @@ const Dashboard = () => {
   const [items, setItems] = useState<ProductProps[]>([]);
 
   const getData = async () => {
-    const response = await axios.get("http://localhost:3000/products");
+    const response = await axios.get<ProductProps[]>(
+      "http://localhost:3000/products"
+    );
     setItems(response.data);
   };
 
@@ -30,10 +28,7 @@ const Dashboard = () => {
   }, []);
 
   // Cálculo de inventário total
-  const quantidade = items.reduce(
-    (totalDeItems, item) => totalDeItems + item.quantity,
-    0
-  );
+  items.reduce((totalDeItems, item) => totalDeItems + item.quantity, 0);
 
   // Cálculo de itens recentes
   let quantidadeItemsRecentes = 0;
