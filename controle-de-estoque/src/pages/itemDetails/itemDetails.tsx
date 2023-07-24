@@ -17,10 +17,11 @@ const ItemDetails: React.FC = () => {
   const product = useLoaderData() as ProductProps; // Obtém os dados do produto carregados pela rota usando o hook useLoaderData
 
   // Função responsável por deletar o item quando o botão "Excluir" é clicado
-  const handleDelete = async () => {
+  const handleDelete = () => {
     try {
       // Faz uma requisição DELETE para a API para deletar o item com o ID específico
-      await axios.delete(`http://localhost:3000/products/${product.id}`);
+      void axios.delete(`http://localhost:3000/products/${product.id}`);
+      alert("O produto foi excluído!");
       // Redireciona o usuário para a página de itens em estoque após a exclusão
       window.location.href = "http://localhost:5173/stock-items";
     } catch (error) {
@@ -40,7 +41,7 @@ const ItemDetails: React.FC = () => {
         {/* Botão para excluir o produto */}
         <button
           className="w-24 py-2 rounded text-gray-950 font-semibold bg-red-600 hover:opacity-80 duration-150"
-          onClick={void handleDelete} // Chama a função handleDelete ao clicar no botão "Excluir"
+          onClick={handleDelete} // Chama a função handleDelete ao clicar no botão "Excluir"
         >
           Excluir
         </button>

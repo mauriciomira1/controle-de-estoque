@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom"; // Importa a função createBrowserRouter da biblioteca react-router-dom para criar o roteador da aplicação
 import RootLayout from "./pages/RootLayout"; // Importa o componente RootLayout, que define o layout base da aplicação
-import Dashboard from "./pages/Dashboard/dashboard"; // Importa o componente Dashboard, que representa a página principal da aplicação
-import ItemDetails from "./pages/ItemDetails/itemDetails"; // Importa o componente ItemDetails, que representa a página de detalhes do item
-import NewItem from "./pages/NewItem/NewItem"; // Importa o componente NewItem, que representa a página para criar um novo item
-import UpdateItem from "./pages/UpdateItem/UpdateItem"; // Importa o componente UpdateItem, que representa a página para atualizar um item existente
+import Dashboard from "./pages/dashboard/dashboard"; // Importa o componente Dashboard, que representa a página principal da aplicação
+import ItemDetails from "./pages/itemDetails/itemDetails"; // Importa o componente ItemDetails, que representa a página de detalhes do item
+import NewItem from "./pages/newItem/newItem"; // Importa o componente NewItem, que representa a página para criar um novo item
+import UpdateItem from "./pages/updateItem/updateItem"; // Importa o componente UpdateItem, que representa a página para atualizar um item existente
 import StockItems from "./pages/StockItems/StockItems"; // Importa o componente StockItems, que representa a página de estoque de itens
 import loadItem from "./loader/loadItem"; // Importa a função loadItem, que é usada para carregar os detalhes do item
 import ItemBoundary from "./errors/ItemBoundary"; // Importa o componente ItemBoundary, que é usado para exibir uma mensagem de erro caso ocorra algum problema ao carregar os detalhes do item

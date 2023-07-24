@@ -1,15 +1,6 @@
 {
   "products": [
     {
-      "id": 123456,
-      "name": "Chocolate Lacta",
-      "quantity": 10,
-      "category": "doce",
-      "price": 3.99,
-      "description": "Tablete de chocolate ao leite da marca Lacta.",
-      "dataDeCadastro": "20/07/2023"
-    },
-    {
       "id": 789012,
       "name": "Biscoito Cream Cracker",
       "quantity": 20,
@@ -26,15 +17,6 @@
       "price": 1.49,
       "description": "Caixa com 5 unidades de chiclete sabor menta da marca Trident.",
       "dataDeCadastro": "16/05/2023"
-    },
-    {
-      "id": 789013,
-      "name": "Paçoca",
-      "quantity": 2,
-      "price": 4.49,
-      "category": "doce",
-      "description": "Moreninha do rio",
-      "dataDeCadastro": "18/05/2023"
     },
     {
       "id": 789014,

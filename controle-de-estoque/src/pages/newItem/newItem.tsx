@@ -4,10 +4,9 @@ import { AiFillCheckCircle } from "react-icons/ai"; // Importa o ícone AiFillCh
 
 const NewItem = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Impede que o formulário seja enviado de forma padrão, evitando o recarregamento da página
-    const novaData = new Date(); // Cria um novo objeto de data
+    e.preventDefault();
+    const novaData = new Date();
     const dataDeCadastro = novaData.toLocaleString("pt-BR", {
-      // Formata a data atual no formato "dd/MM/yyyy"
       day: "2-digit",
       month: "2-digit",
       year: "numeric",
@@ -15,19 +14,17 @@ const NewItem = () => {
 
     void (async () => {
       try {
-        // Faz uma requisição POST usando a biblioteca axios para enviar o novo produto ao servidor
         await axios.post(
-          "http://localhost:3000/products", // URL da API para adicionar produtos
-          newProductWithNumberQuantity // Dados do novo produto
+          "http://localhost:3000/products",
+          newProductWithNumberQuantity
         );
         console.log("requisição enviada com sucesso");
-        setSuccessBtn(true); // Ativa o botão de sucesso após a requisição ser enviada
+        setSuccessBtn(true);
       } catch (error) {
         console.log("requisição falhou");
       }
     })();
 
-    // Limpa os campos do formulário após o envio dos dados
     setNewProduct({
       name: "",
       quantity: 0,

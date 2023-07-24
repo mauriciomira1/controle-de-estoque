@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"; // Importa o componente Link da biblioteca react-router-dom para criar links de navegação
 import productsData from "../../../db.json"; // Importa os dados dos produtos de um arquivo JSON (db.json)
 import { useState } from "react"; // Importa o hook useState do React para gerenciar o estado do componente
 import axios from "axios"; // Importa a biblioteca axios para fazer requisições HTTP

@@ -1,5 +1,6 @@
 import { AiFillCheckCircle } from "react-icons/ai";
 import { useState, useEffect } from "react";
+import useStock from "../hooks/useStock";
 
 interface ProductProps {
   id: number;
@@ -13,6 +14,7 @@ interface ProductProps {
 }
 
 const FormNewItem = ({ productToUpdate }) => {
+  const { newItem } = useStock();
   const defaultProduct = {
     name: "",
     quantity: 0,
@@ -56,7 +58,7 @@ const FormNewItem = ({ productToUpdate }) => {
 
   return (
     // Formulário para adicionar um novo produto
-    <form className="w-full flex flex-col mt-4" onSubmit={handleSubmit}>
+    <form className="w-full flex flex-col mt-4" onSubmit={newItem}>
       <div className="flex gap-6 w-full">
         <div className="flex flex-col gap-2 w-full">
           <label htmlFor="name">Nome</label>

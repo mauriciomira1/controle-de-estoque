@@ -1,5 +1,5 @@
+import FormNewItem from "../../components/FormNewItem";
 import ItemsList from "../ItemsList/ItemsList"; // Importa o componente ItemsList que representa a lista de itens em estoque
-import NewItem from "../NewItem/NewItem"; // Importa o componente NewItem que representa o formulário para criar um novo item
 import { useState } from "react"; // Importa o hook useState do React para gerenciar o estado do componente
 
 const StockItems = () => {
@@ -7,7 +7,7 @@ const StockItems = () => {
   const [activeClass, setActiveClass] = useState("list"); // Estado para controlar a classe ativa do menu de navegação
 
   return (
-    <div className="flex flex-col w-full p-6">
+    <section className="flex flex-col w-full p-6">
       <h1 className="text-5xl mb-10">Stock Items</h1>
       {/* Navegação com opções para listar todos os itens e criar um novo item */}
       <nav>
@@ -31,8 +31,8 @@ const StockItems = () => {
         </ul>
       </nav>
       {/* Renderiza o componente ItemsList ou NewItem com base na classe ativa */}
-      {activeClass === "list" ? <ItemsList /> : <NewItem />}
-    </div>
+      {activeClass === "list" ? <ItemsList /> : <FormNewItem />}
+    </section>
   );
 };
 
