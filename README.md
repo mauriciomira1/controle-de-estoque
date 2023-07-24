@@ -1,4 +1,4 @@
-# Aplicação de Controle de estoque
+## Aplicação de Controle de estoque
 
 Sistema de controle de estoque com funções de Excluir, Adicionar, listar recentes, listar itens acabando, etc; usando Typescript
 
@@ -8,7 +8,7 @@ Os produtos contém: Descrição, preço, nome, quantidade e categoria (criei al
 
 Para rodar instale: "npm i" e rode o "npm run server" para rodar o json-server que simula o banco de dados do servidor.
 
-# Foram utilizados:
+## Foram utilizados:
 1) Typescript
 2) React (com hooks de useContext, useEffect, useState, etc)
 3) React router dom para facilitar as rotas
