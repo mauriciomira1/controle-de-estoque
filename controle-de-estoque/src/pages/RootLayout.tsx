@@ -12,7 +12,7 @@ const RootLayout = () => {
       </main>
       <footer className="flex justify-center pt-10 pb-4">
         <span>
-          Criado por
+          Criado por{" "}
           <Link
             to="https://www.instagram.com/mauriciomira1/"
             target="_blank" // Abre o link em uma nova aba
