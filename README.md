@@ -1,4 +1,4 @@
-# controle-de-estoque
+# Aplicação de Controle de estoque
 
 Sistema de controle de estoque com funções de Excluir, Adicionar, listar recentes, listar itens acabando, etc; usando Typescript
 
