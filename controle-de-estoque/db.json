@@ -107,6 +107,36 @@
       "price": 1.59,
       "description": "Pacote de biscoito de água e sal.",
       "dataDeCadastro": "11/06/2023"
+    },
+    {
+      "name": "Maurício",
+      "quantity": "1",
+      "price": "0.01",
+      "category": "chicle",
+      "description": "",
+      "createdAt": "25/07/2023",
+      "updatedAt": "25/07/2023",
+      "id": 888889
+    },
+    {
+      "name": "Nesfit",
+      "quantity": "5",
+      "price": "6.69",
+      "category": "biscoito",
+      "description": "Nestlé\n",
+      "createdAt": "25/07/2023",
+      "updatedAt": "25/07/2023",
+      "id": 888890
+    },
+    {
+      "name": "Bis Oreo",
+      "quantity": "3",
+      "price": "4.59",
+      "category": "biscoito",
+      "description": "20un",
+      "createdAt": "25/07/2023",
+      "updatedAt": "25/07/2023",
+      "id": 888891
     }
   ]
 }

@@ -5,7 +5,6 @@ import useStock from "../hooks/useStock";
 
 const ItemsTable = () => {
   const { items } = useStock();
-  console.log(items);
 
   return (
     <table className="flex flex-col justify-center items-center w-full">

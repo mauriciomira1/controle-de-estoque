@@ -25,6 +25,7 @@ export function StockContextProvider({ children }: StockContextProviderProps) {
     const response = await axios.get<ProductProps[]>(
       "http://localhost:3000/products"
     );
+    if (!response) return [];
     setItems(response.data);
   };
 

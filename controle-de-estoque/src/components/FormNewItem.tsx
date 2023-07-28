@@ -38,12 +38,6 @@ const FormNewItem = ({ productToUpdate }) => {
     setNewProduct({ ...newProduct, [name]: value });
   };
 
-  /*   const newProductWithNumberQuantity = {
-    ...newProduct,
-    quantity: Number(newProduct.quantity),
-    price: Number(newProduct.price),
-  }; */
-
   const [successBtn, setSuccessBtn] = useState<boolean>(false); // Estado para controlar a exibição do botão de sucesso
   useEffect(() => {
     // Efeito para limpar a exibição do botão de sucesso após 1 segundo
@@ -54,11 +48,18 @@ const FormNewItem = ({ productToUpdate }) => {
 
       return () => clearTimeout(timer); // Limpa o timer ao desmontar o componente
     }
-  }, [successBtn]); // Executa o efeito sempre que o estado successBtn é alterado
+  }, [successBtn]);
 
   return (
     // Formulário para adicionar um novo produto
-    <form className="w-full flex flex-col mt-4" onSubmit={newItem}>
+    <form
+      className="w-full flex flex-col mt-4"
+      onSubmit={(e) => {
+        e.preventDefault();
+        newItem(newProduct);
+        setSuccessBtn(true);
+      }}
+    >
       <div className="flex gap-6 w-full">
         <div className="flex flex-col gap-2 w-full">
           <label htmlFor="name">Nome</label>
@@ -108,7 +109,9 @@ const FormNewItem = ({ productToUpdate }) => {
             onChange={handleChange}
             required
           >
-            <option selected>Selecione</option>
+            <option value="" selected disabled>
+              Selecione
+            </option>
             <option value="bala">Bala</option>
             <option value="biscoito">Biscoito</option>
             <option value="chicle">Chicle</option>
