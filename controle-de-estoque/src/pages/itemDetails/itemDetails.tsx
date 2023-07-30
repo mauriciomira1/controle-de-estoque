@@ -9,7 +9,8 @@ interface ProductProps {
   category: string;
   price: number;
   description: string;
-  dataDeCadastro: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 const ItemDetails: React.FC = () => {

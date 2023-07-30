@@ -1,6 +1,6 @@
 import axios from "axios"; // Importa a biblioteca axios para fazer requisições HTTP
 import { FormEvent, useState, useEffect } from "react"; // Importa os hooks useState, useEffect e o evento FormEvent do React
-import { AiFillCheckCircle } from "react-icons/ai"; // Importa o ícone AiFillCheckCircle da biblioteca react-icons
+import { AiFillCheckCircle } from "react-icons/ai"; // Ícone da biblioteca react-icons
 
 const NewItem = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

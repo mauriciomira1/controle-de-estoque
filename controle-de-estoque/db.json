@@ -7,7 +7,8 @@
       "category": "biscoito",
       "price": 2.89,
       "description": "Pacote de biscoito cream cracker.",
-      "dataDeCadastro": "20/07/2023"
+      "createdAt": "20/07/2023",
+      "updatedAt": "20/07/2023"
     },
     {
       "id": 345678,
@@ -16,7 +17,8 @@
       "category": "chicle",
       "price": 1.49,
       "description": "Caixa com 5 unidades de chiclete sabor menta da marca Trident.",
-      "dataDeCadastro": "16/05/2023"
+      "createdAt": "16/05/2023",
+      "updatedAt": "16/05/2023"
     },
     {
       "id": 789014,
@@ -25,7 +27,8 @@
       "price": 12.98,
       "category": "bala",
       "description": "Halls Menta",
-      "dataDeCadastro": "20/07/2023"
+      "createdAt": "20/07/2023",
+      "updatedAt": "20/07/2023"
     },
     {
       "id": 111111,
@@ -34,7 +37,8 @@
       "category": "bala",
       "price": 0.99,
       "description": "Bala de goma sortida.",
-      "dataDeCadastro": "22/05/2023"
+      "createdAt": "22/05/2023",
+      "updatedAt": "22/05/2023"
     },
     {
       "id": 222222,
@@ -43,7 +47,8 @@
       "category": "chiclete",
       "price": 1.79,
       "description": "Pacote de chiclete Bubbaloo sabor morango.",
-      "dataDeCadastro": "24/05/2023"
+      "createdAt": "24/05/2023",
+      "updatedAt": "24/05/2023"
     },
     {
       "id": 333333,
@@ -52,7 +57,8 @@
       "category": "pirulito",
       "price": 0.75,
       "description": "Pirulito de sabores sortidos da marca Arcor.",
-      "dataDeCadastro": "21/07/2023"
+      "createdAt": "21/07/2023",
+      "updatedAt": "21/07/2023"
     },
     {
       "id": 444444,
@@ -61,7 +67,8 @@
       "category": "biscoito",
       "price": 3.99,
       "description": "Pacote de biscoito wafer com recheio de chocolate.",
-      "dataDeCadastro": "28/05/2023"
+      "createdAt": "28/05/2023",
+      "updatedAt": "28/05/2023"
     },
     {
       "id": 555555,
@@ -70,7 +77,8 @@
       "category": "bala",
       "price": 2.49,
       "description": "Bala mastigável Butter Toffees.",
-      "dataDeCadastro": "30/05/2023"
+      "createdAt": "30/05/2023",
+      "updatedAt": "30/05/2023"
     },
     {
       "id": 666666,
@@ -79,7 +87,8 @@
       "category": "chiclete",
       "price": 1.99,
       "description": "Caixa com 5 unidades de chiclete sabor hortelã da marca Trident.",
-      "dataDeCadastro": "01/06/2023"
+      "createdAt": "01/06/2023",
+      "updatedAt": "01/06/2023"
     },
     {
       "id": 777777,
@@ -88,7 +97,8 @@
       "category": "doce",
       "price": 4.99,
       "description": "Pote de doce de leite pastoso.",
-      "dataDeCadastro": "13/07/2023"
+      "createdAt": "13/07/2023",
+      "updatedAt": "13/07/2023"
     },
     {
       "id": 888888,
@@ -97,7 +107,8 @@
       "category": "biscoito",
       "price": 2.29,
       "description": "Pacote de biscoito recheado sabor chocolate.",
-      "dataDeCadastro": "19/07/2023"
+      "createdAt": "19/07/2023",
+      "updatedAt": "19/07/2023"
     },
     {
       "id": 121212,
@@ -106,37 +117,28 @@
       "category": "biscoito",
       "price": 1.59,
       "description": "Pacote de biscoito de água e sal.",
-      "dataDeCadastro": "11/06/2023"
+      "createdAt": "11/06/2023",
+      "updatedAt": "11/06/2023"
     },
     {
-      "name": "Maurício",
-      "quantity": "1",
-      "price": "0.01",
-      "category": "chicle",
-      "description": "",
-      "createdAt": "25/07/2023",
-      "updatedAt": "25/07/2023",
-      "id": 888889
-    },
-    {
+      "id": 888890,
       "name": "Nesfit",
-      "quantity": "5",
-      "price": "6.69",
+      "quantity": 5,
       "category": "biscoito",
-      "description": "Nestlé\n",
+      "price": 6.69,
+      "description": "Nestlé",
       "createdAt": "25/07/2023",
-      "updatedAt": "25/07/2023",
-      "id": 888890
+      "updatedAt": "25/07/2023"
     },
     {
+      "id": 888891,
       "name": "Bis Oreo",
-      "quantity": "3",
-      "price": "4.59",
+      "quantity": 3,
       "category": "biscoito",
+      "price": 4.59,
       "description": "20un",
       "createdAt": "25/07/2023",
-      "updatedAt": "25/07/2023",
-      "id": 888891
+      "updatedAt": "25/07/2023"
     }
   ]
 }

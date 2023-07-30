@@ -2,6 +2,7 @@ import axios from "axios";
 import DashboardWindow from "../../components/DashboardWindow";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useStock from "../../hooks/useStock";
 
 interface ProductProps {
   id: number;
@@ -10,12 +11,14 @@ interface ProductProps {
   category: string;
   price: number;
   description: string;
-  dataDeCadastro: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 const Dashboard = () => {
-  const [items, setItems] = useState<ProductProps[]>([]);
-
+  const { items } = useStock();
+  console.log(items);
+  /*   const [items, setItems] = useState<ProductProps[]>([]);
   const getData = async () => {
     const response = await axios.get<ProductProps[]>(
       "http://localhost:3000/products"
@@ -25,7 +28,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     void getData();
-  }, []);
+  }, []); */
 
   // Cálculo de inventário total
   items.reduce((totalDeItems, item) => totalDeItems + item.quantity, 0);
@@ -44,7 +47,7 @@ const Dashboard = () => {
 
   items.map((item) => {
     const dataAtual: Date = new Date();
-    const dataComparar: Date = converterStringParaData(item.dataDeCadastro);
+    const dataComparar: Date = converterStringParaData(item.createdAt);
     const subtracaoEmMilisegundos: number =
       dataAtual.getTime() - dataComparar.getTime();
     const diferencaEmDias: number =
