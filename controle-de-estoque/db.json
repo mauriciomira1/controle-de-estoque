@@ -119,16 +119,6 @@
       "description": "Pacote de biscoito de água e sal.",
       "createdAt": "11/06/2023",
       "updatedAt": "11/06/2023"
-    },
-    {
-      "id": 888890,
-      "name": "Nesfit",
-      "quantity": 5,
-      "category": "biscoito",
-      "price": 6.69,
-      "description": "Nestlé",
-      "createdAt": "25/07/2023",
-      "updatedAt": "25/07/2023"
     }
   ]
 }

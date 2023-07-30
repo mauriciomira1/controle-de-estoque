@@ -1,7 +1,11 @@
 import { useContext } from "react";
 import { StockContext } from "../contexts/StockContext";
 
-const useStock = () => {
+interface StockHook {
+  deleteItem?: (itemId: number) => void;
+}
+
+const useStock = (): StockHook => {
   return useContext(StockContext);
 };
 
