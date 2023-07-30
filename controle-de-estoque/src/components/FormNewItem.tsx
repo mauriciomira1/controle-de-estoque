@@ -1,5 +1,5 @@
 import { AiFillCheckCircle } from "react-icons/ai";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import useStock from "../hooks/useStock";
 
 interface ProductProps {
@@ -27,6 +27,7 @@ const FormNewItem = ({ productToUpdate }) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     productToUpdate ? productToUpdate : defaultProduct
   );
+  const inputRef = useRef(null);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -58,6 +59,7 @@ const FormNewItem = ({ productToUpdate }) => {
         e.preventDefault();
         newItem(newProduct);
         setSuccessBtn(true);
+        inputRef.current.focus();
       }}
     >
       <div className="flex gap-6 w-full">
@@ -71,6 +73,7 @@ const FormNewItem = ({ productToUpdate }) => {
             value={newProduct.name}
             onChange={handleChange}
             required
+            ref={inputRef}
           />
         </div>
         <div className="flex flex-col gap-2 w-full">

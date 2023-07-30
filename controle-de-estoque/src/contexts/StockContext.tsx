@@ -57,9 +57,22 @@ export function StockContextProvider({ children }: StockContextProviderProps) {
     })();
   };
 
+  const deleteItem = (itemId: number) => {
+    void (async () => {
+      try {
+        await axios.delete(`http://localhost:3000/products/${itemId}`);
+        void getData();
+        console.log("Produto excluído com sucesso!");
+      } catch (error) {
+        console.log("Exclusão de produto falhou!");
+      }
+    })();
+  };
+
   const stock = {
     items,
     newItem,
+    deleteItem,
   };
 
   return (

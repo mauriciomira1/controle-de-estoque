@@ -129,16 +129,6 @@
       "description": "Nestlé",
       "createdAt": "25/07/2023",
       "updatedAt": "25/07/2023"
-    },
-    {
-      "id": 888891,
-      "name": "Bis Oreo",
-      "quantity": 3,
-      "category": "biscoito",
-      "price": 4.59,
-      "description": "20un",
-      "createdAt": "25/07/2023",
-      "updatedAt": "25/07/2023"
     }
   ]
 }

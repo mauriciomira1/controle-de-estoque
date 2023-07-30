@@ -2,6 +2,18 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Link } from "react-router-dom";
 import useStock from "../hooks/useStock";
+import DeleteButton from "./DeleteButton";
+
+interface ItemProps {
+  id: number;
+  name: string;
+  quantity: number;
+  category: string;
+  price: number;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+}
 
 const ItemsTable = () => {
   const { items } = useStock();
@@ -17,7 +29,7 @@ const ItemsTable = () => {
           <th className="w-2/12 text-left">Ações</th>
         </tr>
         {items &&
-          items.map((item) => (
+          items.map((item: ItemProps) => (
             // Mapeia cada produto da lista para criar uma linha na tabela
             <tr className="w-full my-3 flex px-4 items-center" key={item.id}>
               <td className="w-2/12 text-left">{item.id}</td>
@@ -25,22 +37,16 @@ const ItemsTable = () => {
               <td className="w-2/12 text-left">{item.quantity}</td>
               <td className="w-2/12 text-left">{item.category}</td>
               <td className="w-2/12 text-left flex gap-3">
-                {/* Cria botões de ação para cada produto */}
                 <Link
                   to={`/item-details/${item.id}`}
                   className="px-2 py-1 rounded text-gray-950 font-semibold bg-blue-600 hover:bg-blue-500 hover:text-gray-950 duration-150"
                 >
-                  Ver {/* Botão para visualizar detalhes do produto */}
+                  Ver
                 </Link>
                 <button className="px-2 py-1 rounded text-gray-950 font-semibold bg-gray-100 hover:opacity-90 duration-150">
-                  Atualizar {/* Botão para atualizar informações do produto */}
+                  Atualizar
                 </button>
-                <button
-                  className="px-2 py-1 rounded text-gray-950 font-semibold bg-red-600 hover:opacity-90 duration-150"
-                  /* onClick={() => void handleDelete(product.id)} */
-                >
-                  Excluir {/* Botão para excluir o produto */}
-                </button>
+                <DeleteButton itemName={item.name} itemId={item.id} />
               </td>
             </tr>
           ))}
