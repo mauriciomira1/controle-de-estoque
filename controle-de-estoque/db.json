@@ -109,6 +109,16 @@
       "description": "Pacote de biscoito de água e sal.",
       "createdAt": "11/06/2023",
       "updatedAt": "11/06/2023"
+    },
+    {
+      "name": "Trident Morango",
+      "quantity": "3",
+      "price": "14.98",
+      "category": "chicle",
+      "description": "30un",
+      "createdAt": "31/07/2023",
+      "updatedAt": "31/07/2023",
+      "id": 888889
     }
   ]
 }

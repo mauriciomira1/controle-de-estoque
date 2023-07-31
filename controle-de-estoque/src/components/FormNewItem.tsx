@@ -59,6 +59,7 @@ const FormNewItem = ({ productToUpdate }) => {
         e.preventDefault();
         newItem(newProduct);
         setSuccessBtn(true);
+        setNewProduct(defaultProduct);
         inputRef.current.focus();
       }}
     >
