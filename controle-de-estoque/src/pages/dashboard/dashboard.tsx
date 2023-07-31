@@ -1,10 +1,10 @@
 import axios from "axios";
 import DashboardWindow from "../../components/DashboardWindow";
-import { useEffect, useState } from "react";
+import { ObjectHTMLAttributes, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useStock from "../../hooks/useStock";
 
-interface ProductProps {
+interface itemsProps {
   id: number;
   name: string;
   quantity: number;
@@ -17,54 +17,56 @@ interface ProductProps {
 
 const Dashboard = () => {
   const { items } = useStock();
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const listaItemsRecentes: itemsProps[] = [];
+  const listaItemsAcabando: itemsProps[] = [];
+  let total = 0;
+  let quantidadeItemsRecentes = 0;
   console.log(items);
-  /*   const [items, setItems] = useState<ProductProps[]>([]);
-  const getData = async () => {
-    const response = await axios.get<ProductProps[]>(
-      "http://localhost:3000/products"
-    );
-    setItems(response.data);
-  };
 
   useEffect(() => {
-    void getData();
-  }, []); */
+    if (items && items.length > 0) {
+      // Cálculo de inventário total
+      items.reduce((totalDeItems, item) => totalDeItems + item.quantity, 0);
 
-  // Cálculo de inventário total
-  items.reduce((totalDeItems, item) => totalDeItems + item.quantity, 0);
+      // Cálculo de itens recentes
 
-  // Cálculo de itens recentes
-  let quantidadeItemsRecentes = 0;
-  const listaItemsRecentes: ProductProps[] = [];
+      // Função para converter a string em um objeto Date
+      const converterStringParaData = (dataStr: string): Date => {
+        const partesData: number[] = dataStr
+          .split("/")
+          .map((parte) => parseInt(parte, 10));
+        return new Date(partesData[2], partesData[1] - 1, partesData[0]);
+      };
 
-  // Função para converter a string em um objeto Date
-  function converterStringParaData(dataStr: string): Date {
-    const partesData: number[] = dataStr
-      .split("/")
-      .map((parte) => parseInt(parte, 10));
-    return new Date(partesData[2], partesData[1] - 1, partesData[0]);
+      items.map((item) => {
+        const dataAtual: Date = new Date();
+        const dataComparar: Date = converterStringParaData(item.createdAt);
+        const subtracaoEmMilisegundos: number =
+          dataAtual.getTime() - dataComparar.getTime();
+        const diferencaEmDias: number =
+          subtracaoEmMilisegundos / (1000 * 60 * 60 * 24);
+        if (diferencaEmDias < 10) listaItemsRecentes.push(item);
+        quantidadeItemsRecentes = Number(listaItemsRecentes.length);
+      });
+
+      // Cálculo de itens acabando (se quantidade < 5un)
+
+      items.map((item) => {
+        if (item.quantity < 5) {
+          listaItemsAcabando.push(item);
+          total++;
+        }
+      });
+    }
+    setDataLoaded(true);
+  }, [items]);
+
+  if (!dataLoaded) {
+    return <div>Carregando...</div>;
   }
 
-  items.map((item) => {
-    const dataAtual: Date = new Date();
-    const dataComparar: Date = converterStringParaData(item.createdAt);
-    const subtracaoEmMilisegundos: number =
-      dataAtual.getTime() - dataComparar.getTime();
-    const diferencaEmDias: number =
-      subtracaoEmMilisegundos / (1000 * 60 * 60 * 24);
-    if (diferencaEmDias < 10) listaItemsRecentes.push(item);
-    quantidadeItemsRecentes = Number(listaItemsRecentes.length);
-  });
-
-  // Cálculo de itens acabando (se quantidade < 5un)
-  let total = 0;
-  const listaItemsAcabando: ProductProps[] = [];
-  items.map((item) => {
-    if (item.quantity < 5) {
-      listaItemsAcabando.push(item);
-      total++;
-    }
-  });
+  console.log(total);
 
   return (
     <>
