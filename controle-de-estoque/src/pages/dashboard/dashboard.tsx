@@ -18,11 +18,15 @@ interface itemsProps {
 const Dashboard = () => {
   const { items } = useStock();
   const [dataLoaded, setDataLoaded] = useState(false);
-  const listaItemsRecentes: itemsProps[] = [];
-  const listaItemsAcabando: itemsProps[] = [];
-  let total = 0;
-  let quantidadeItemsRecentes = 0;
-  console.log(items);
+  const [listaItemsRecentes, setListaItemsRecentes] = useState<itemsProps[]>(
+    []
+  );
+  const [listaItemsAcabando, setListaItemsAcabando] = useState<itemsProps[]>(
+    []
+  );
+  const [quantidadeItemsRecentes, setQuantidadeItemsRecentes] = useState(0);
+
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     if (items && items.length > 0) {
@@ -47,26 +51,31 @@ const Dashboard = () => {
         const diferencaEmDias: number =
           subtracaoEmMilisegundos / (1000 * 60 * 60 * 24);
         if (diferencaEmDias < 10) listaItemsRecentes.push(item);
-        quantidadeItemsRecentes = Number(listaItemsRecentes.length);
+        setQuantidadeItemsRecentes(Number(listaItemsRecentes.length));
       });
 
-      // Cálculo de itens acabando (se quantidade < 5un)
-
+      // Cálculo de itens acabando (se quantidade < 10un)
+      let meutotal = 0;
       items.map((item) => {
-        if (item.quantity < 5) {
+        if (item.quantity < 10) {
           listaItemsAcabando.push(item);
-          total++;
+
+          meutotal++;
+          setTotal(meutotal);
         }
       });
     }
+    setListaItemsRecentes(listaItemsRecentes);
+    setListaItemsAcabando(listaItemsAcabando);
+    /*     setQuantidadeItemsRecentes(quantidadeItemsRecentes); */
     setDataLoaded(true);
-  }, [items]);
+    setTotal(total);
+  }, [items, listaItemsAcabando, listaItemsRecentes, total]);
 
   if (!dataLoaded) {
     return <div>Carregando...</div>;
   }
-
-  console.log(total);
+  console.log(listaItemsRecentes);
 
   return (
     <>
@@ -120,12 +129,15 @@ const Dashboard = () => {
                   title="Itens recentes"
                   quantity={quantidadeItemsRecentes}
                 />
-                <DashboardWindow title="Itens acabando" quantity={total} />
+                <DashboardWindow
+                  title="Itens acabando (<10)"
+                  quantity={total}
+                />
               </div>
               <table className="w-full flex flex-col justify-center">
                 <tbody>
                   <tr className="bg-gray-900 items-center flex pl-2 py-2 rounded font-semibold">
-                    <th className="w-2/4 text-left">Itens acabando</th>
+                    <th className="w-2/4 text-left">Itens acabando </th>
                     <th className="w-1/4">Qtd</th>
                     <th className="w-1/4">Ações</th>
                   </tr>

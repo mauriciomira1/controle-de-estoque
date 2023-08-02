@@ -3,7 +3,7 @@ import useStock from "../hooks/useStock";
 interface DeleteButtonProps {
   itemName: string;
   itemId: number;
-  deleteItem: (itemId: number) => void;
+  deleteItem?: (itemId: number) => void;
 }
 
 const DeleteButton = ({ itemName, itemId }: DeleteButtonProps) => {
