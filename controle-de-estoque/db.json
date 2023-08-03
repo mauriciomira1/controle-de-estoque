@@ -61,24 +61,14 @@
       "updatedAt": "28/05/2023"
     },
     {
-      "id": 555555,
-      "name": "Bala Butter Toffees",
-      "quantity": 30,
-      "category": "bala",
-      "price": 2.49,
-      "description": "Bala mastigável Butter Toffees.",
-      "createdAt": "30/05/2023",
-      "updatedAt": "30/05/2023"
-    },
-    {
       "id": 666666,
       "name": "Chiclete Trident Hortelã",
       "quantity": 1,
       "category": "chiclete",
       "price": 1.99,
       "description": "Caixa com 5 unidades de chiclete sabor hortelã da marca Trident.",
-      "createdAt": "01/06/2023",
-      "updatedAt": "01/06/2023"
+      "createdAt": "01/08/2023",
+      "updatedAt": "01/08/2023"
     },
     {
       "id": 777777,
@@ -87,8 +77,8 @@
       "category": "doce",
       "price": 4.99,
       "description": "Pote de doce de leite pastoso.",
-      "createdAt": "13/07/2023",
-      "updatedAt": "13/07/2023"
+      "createdAt": "01/08/2023",
+      "updatedAt": "01/08/2023"
     },
     {
       "id": 888888,
@@ -112,13 +102,33 @@
     },
     {
       "name": "Trident Morango",
-      "quantity": "3",
-      "price": "14.98",
+      "quantity": 3,
+      "price": 14.9,
       "category": "chicle",
       "description": "30un",
       "createdAt": "31/07/2023",
       "updatedAt": "31/07/2023",
       "id": 888889
+    },
+    {
+      "name": "Biscoito Marsha",
+      "quantity": 15,
+      "price": 5.69,
+      "category": "biscoito",
+      "description": "350g",
+      "createdAt": "02/08/2023",
+      "updatedAt": "02/08/2023",
+      "id": 888890
+    },
+    {
+      "name": "Drops Halls",
+      "quantity": 16,
+      "price": 17.55,
+      "category": "bala",
+      "description": "30un",
+      "createdAt": "02/08/2023",
+      "updatedAt": "02/08/2023",
+      "id": 888891
     }
   ]
 }

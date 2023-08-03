@@ -1,8 +1,21 @@
 import axios from "axios"; // Importa a biblioteca axios para fazer requisições HTTP
-import { FormEvent, useState, useEffect } from "react"; // Importa os hooks useState, useEffect e o evento FormEvent do React
+import { FormEvent, useState } from "react"; // Importa os hooks useState, useEffect e o evento FormEvent do React
 import { AiFillCheckCircle } from "react-icons/ai"; // Ícone da biblioteca react-icons
 
+interface itemsProps {
+  id: number;
+  name: string;
+  quantity: number;
+  category: string;
+  price: number;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 const NewItem = () => {
+  const [newProduct, setNewProduct] = useState<itemsProps>();
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const novaData = new Date();

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { StockContext } from "../contexts/StockContext";
 
-interface itemsProps {
+interface itemProps {
   id: number;
   name: string;
   quantity: number;
@@ -14,8 +14,8 @@ interface itemsProps {
 
 interface StockHook {
   deleteItem?: (itemId: number) => void;
-  items?: itemsProps[];
-  newItem?: (itemId: number) => void;
+  items?: itemProps[];
+  newItem?: (item: itemProps) => void;
 }
 
 const useStock = (): StockHook => {

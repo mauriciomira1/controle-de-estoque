@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import useStock from "../hooks/useStock";
 import DeleteButton from "./DeleteButton";
+import { useEffect } from "react";
 
 interface ItemProps {
   id: number;

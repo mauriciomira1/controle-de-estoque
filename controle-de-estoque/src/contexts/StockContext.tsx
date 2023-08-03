@@ -8,14 +8,14 @@ interface StockContextProviderProps {
 }
 
 interface ProductProps {
-  id: number;
+  id?: number;
   name: string;
   quantity: number;
   category: string;
   price: number;
   description: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export function StockContextProvider({ children }: StockContextProviderProps) {
@@ -51,6 +51,7 @@ export function StockContextProvider({ children }: StockContextProviderProps) {
           item // Dados do novo produto
         );
         console.log("Novo produto criado com sucesso!");
+        void getData();
       } catch (error) {
         console.log("Criação de produto falhou!");
       }

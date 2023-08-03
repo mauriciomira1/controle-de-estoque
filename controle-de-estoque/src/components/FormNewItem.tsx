@@ -13,14 +13,17 @@ interface ProductProps {
   updatedAt: string;
 }
 
-const FormNewItem = ({ productToUpdate }) => {
+const FormNewItem = (productToUpdate: ProductProps) => {
   const { newItem } = useStock();
   const defaultProduct = {
+    id: 0,
     name: "",
     quantity: 0,
     price: 0,
     category: "",
     description: "",
+    createdAt: "",
+    updatedAt: "",
   };
   // Estado para armazenar os dados do novo produto
   const [newProduct, setNewProduct] = useState<ProductProps>(
@@ -37,6 +40,17 @@ const FormNewItem = ({ productToUpdate }) => {
     // Função para atualizar o estado do novo produto quando o usuário digita nos campos do formulário
     const { name, value } = e.target;
     setNewProduct({ ...newProduct, [name]: value });
+  };
+
+  const handleNumberChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    // Função para atualizar o estado do novo produto quando o usuário digita nos campos do formulário
+    const { name, value } = e.target;
+    const numericValue = +value;
+    setNewProduct({ ...newProduct, [name]: numericValue });
   };
 
   const [successBtn, setSuccessBtn] = useState<boolean>(false); // Estado para controlar a exibição do botão de sucesso
@@ -57,10 +71,9 @@ const FormNewItem = ({ productToUpdate }) => {
       className="w-full flex flex-col mt-4"
       onSubmit={(e) => {
         e.preventDefault();
-        newItem(newProduct);
+        newItem ? newItem(newProduct) : null;
         setSuccessBtn(true);
         setNewProduct(defaultProduct);
-        inputRef.current.focus();
       }}
     >
       <div className="flex gap-6 w-full">
@@ -84,8 +97,8 @@ const FormNewItem = ({ productToUpdate }) => {
             name="quantity"
             id="quantity"
             className="px-2 py-2 rounded bg-gray-950 w-full text-gray-50"
-            value={+newProduct.quantity}
-            onChange={handleChange}
+            value={newProduct.quantity}
+            onChange={handleNumberChange}
             required
           />
         </div>
@@ -99,7 +112,7 @@ const FormNewItem = ({ productToUpdate }) => {
             step={0.01}
             className="px-2 py-2 rounded bg-gray-950 w-full text-gray-50"
             value={+newProduct.price}
-            onChange={handleChange}
+            onChange={handleNumberChange}
             required
           />
         </div>
@@ -113,7 +126,7 @@ const FormNewItem = ({ productToUpdate }) => {
             onChange={handleChange}
             required
           >
-            <option value="" selected disabled>
+            <option disabled selected>
               Selecione
             </option>
             <option value="bala">Bala</option>

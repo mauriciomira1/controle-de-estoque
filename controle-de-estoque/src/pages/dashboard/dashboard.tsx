@@ -1,6 +1,5 @@
-import axios from "axios";
 import DashboardWindow from "../../components/DashboardWindow";
-import { ObjectHTMLAttributes, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useStock from "../../hooks/useStock";
 
@@ -30,11 +29,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (items && items.length > 0) {
-      // Cálculo de inventário total
-      items.reduce((totalDeItems, item) => totalDeItems + item.quantity, 0);
-
-      // Cálculo de itens recentes
-
       // Função para converter a string em um objeto Date
       const converterStringParaData = (dataStr: string): Date => {
         const partesData: number[] = dataStr
@@ -43,39 +37,53 @@ const Dashboard = () => {
         return new Date(partesData[2], partesData[1] - 1, partesData[0]);
       };
 
-      items.map((item) => {
-        const dataAtual: Date = new Date();
-        const dataComparar: Date = converterStringParaData(item.createdAt);
+      const novaListaItemsRecentes: itemsProps[] = [];
+      const novaListaItemsAcabando: itemsProps[] = [];
+      const dataAtual: Date = new Date();
+
+      items.forEach((item) => {
+        const dataComparar = converterStringParaData(item.createdAt);
         const subtracaoEmMilisegundos: number =
           dataAtual.getTime() - dataComparar.getTime();
         const diferencaEmDias: number =
           subtracaoEmMilisegundos / (1000 * 60 * 60 * 24);
-        if (diferencaEmDias < 10) listaItemsRecentes.push(item);
-        setQuantidadeItemsRecentes(Number(listaItemsRecentes.length));
-      });
+        if (diferencaEmDias < 15) {
+          if (!novaListaItemsRecentes.includes(item))
+            novaListaItemsRecentes.push(item);
+        }
 
-      // Cálculo de itens acabando (se quantidade < 10un)
-      let meutotal = 0;
-      items.map((item) => {
+        // Cálculo de itens acabando (se quantidade < 10un)
         if (item.quantity < 10) {
-          listaItemsAcabando.push(item);
-
-          meutotal++;
-          setTotal(meutotal);
+          if (!novaListaItemsAcabando.includes(item)) {
+            novaListaItemsAcabando.push(item);
+          }
         }
       });
-    }
-    setListaItemsRecentes(listaItemsRecentes);
-    setListaItemsAcabando(listaItemsAcabando);
-    /*     setQuantidadeItemsRecentes(quantidadeItemsRecentes); */
-    setDataLoaded(true);
-    setTotal(total);
-  }, [items, listaItemsAcabando, listaItemsRecentes, total]);
 
+      setListaItemsRecentes(novaListaItemsRecentes);
+      setQuantidadeItemsRecentes(novaListaItemsRecentes.length);
+      setListaItemsAcabando(novaListaItemsAcabando);
+      setTotal(novaListaItemsAcabando.length);
+      setDataLoaded(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items]);
   if (!dataLoaded) {
     return <div>Carregando...</div>;
   }
-  console.log(listaItemsRecentes);
+
+  const minhasoma = +items.reduce(
+    (totalDeItems, item) => totalDeItems + item.quantity,
+    0
+  );
+  let somador = 0;
+  const soma02 = items?.forEach((item) => {
+    somador += item.quantity;
+  });
+
+  console.log(typeof items[11].quantity);
+  console.log(typeof somador);
+  console.log(somador);
 
   return (
     <>
@@ -137,7 +145,7 @@ const Dashboard = () => {
               <table className="w-full flex flex-col justify-center">
                 <tbody>
                   <tr className="bg-gray-900 items-center flex pl-2 py-2 rounded font-semibold">
-                    <th className="w-2/4 text-left">Itens acabando </th>
+                    <th className="w-2/4 text-left">Itens acabando</th>
                     <th className="w-1/4">Qtd</th>
                     <th className="w-1/4">Ações</th>
                   </tr>
