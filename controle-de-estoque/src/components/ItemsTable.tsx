@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import useStock from "../hooks/useStock";
 import DeleteButton from "./DeleteButton";
+/* import { useState } from "react"; */
+/* import FormNewItem from "./FormNewItem"; */
 
 interface ItemProps {
   id: number;
@@ -15,6 +17,7 @@ interface ItemProps {
 
 const ItemsTable = () => {
   const { items } = useStock();
+  /*   const [activeUpdate, setActiveUpdate] = useState(false); */
 
   return (
     <table className="flex flex-col justify-center items-center w-full">

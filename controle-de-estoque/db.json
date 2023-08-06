@@ -79,16 +79,6 @@
       "description": "Pacote de biscoito recheado sabor chocolate.",
       "createdAt": "19/07/2023",
       "updatedAt": "19/07/2023"
-    },
-    {
-      "id": 121212,
-      "name": "Biscoito de Água e Sal",
-      "quantity": 35,
-      "category": "biscoito",
-      "price": 1.59,
-      "description": "Pacote de biscoito de água e sal.",
-      "createdAt": "11/06/2023",
-      "updatedAt": "11/06/2023"
     }
   ]
 }

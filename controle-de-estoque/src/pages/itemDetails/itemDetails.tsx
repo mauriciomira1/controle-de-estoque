@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"; // Importa o hook useLoaderData da biblioteca react-router-dom, usado para acessar os dados carregados por uma rota
+import { useLoaderData, useNavigate } from "react-router-dom"; // Importa o hook useLoaderData da biblioteca react-router-dom, usado para acessar os dados carregados por uma rota
 import useStock from "../../hooks/useStock";
 
 interface ProductProps {
@@ -18,6 +18,7 @@ const ItemDetails: React.FC = () => {
 
   // Utilizando o hook useStock para obter a função deleteItem
   const { deleteItem } = useStock();
+  const navigate = useNavigate();
 
   // Função responsável por deletar o item quando o botão "Excluir" é clicado
   const handleDelete = () => {
@@ -25,7 +26,7 @@ const ItemDetails: React.FC = () => {
       deleteItem ? deleteItem(product.id) : null;
 
       // Redireciona o usuário para a página de itens em estoque após a exclusão
-      window.location.href = "http://localhost:5173/stock-items";
+      navigate("/stock-items");
     }
   };
 
