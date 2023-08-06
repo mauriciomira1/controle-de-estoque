@@ -1,9 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Link } from "react-router-dom";
 import useStock from "../hooks/useStock";
 import DeleteButton from "./DeleteButton";
-import { useEffect } from "react";
 
 interface ItemProps {
   id: number;

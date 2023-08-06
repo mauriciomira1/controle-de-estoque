@@ -1,7 +1,6 @@
-import axios from "axios"; // Importa a biblioteca axios para fazer requisições HTTP
 import { useLoaderData } from "react-router-dom"; // Importa o hook useLoaderData da biblioteca react-router-dom, usado para acessar os dados carregados por uma rota
+import useStock from "../../hooks/useStock";
 
-// Interface que define o formato dos dados do produto
 interface ProductProps {
   id: number;
   name: string;
@@ -17,16 +16,16 @@ const ItemDetails: React.FC = () => {
   // Componente ItemDetails, responsável por exibir os detalhes de um produto específico
   const product = useLoaderData() as ProductProps; // Obtém os dados do produto carregados pela rota usando o hook useLoaderData
 
+  // Utilizando o hook useStock para obter a função deleteItem
+  const { deleteItem } = useStock();
+
   // Função responsável por deletar o item quando o botão "Excluir" é clicado
   const handleDelete = () => {
-    try {
-      // Faz uma requisição DELETE para a API para deletar o item com o ID específico
-      void axios.delete(`http://localhost:3000/products/${product.id}`);
-      alert("O produto foi excluído!");
+    if (confirm(`Tem certeza que deseja excluir ${product.name}?`)) {
+      deleteItem ? deleteItem(product.id) : null;
+
       // Redireciona o usuário para a página de itens em estoque após a exclusão
       window.location.href = "http://localhost:5173/stock-items";
-    } catch (error) {
-      console.error("Erro ao deletar item: ", error); // Em caso de erro, exibe a mensagem de erro no console
     }
   };
 
@@ -65,9 +64,11 @@ const ItemDetails: React.FC = () => {
       <p className="text-xl font-light">{product.description}</p>
       {/* Exibe as datas de cadastro e atualização do produto */}
       <p className="text-gray-400 text-sm italic">
-        Cadastrado em: {product.dataDeCadastro}
+        Cadastrado em: {product.createdAt}
       </p>
-      <p className="text-gray-400 text-sm italic">Atualizado em: 21/07/2023</p>
+      <p className="text-gray-400 text-sm italic">
+        Atualizado em: {product.createdAt}
+      </p>
     </section>
   );
 };

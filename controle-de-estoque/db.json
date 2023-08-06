@@ -1,16 +1,6 @@
 {
   "products": [
     {
-      "id": 789012,
-      "name": "Biscoito Cream Cracker",
-      "quantity": 20,
-      "category": "biscoito",
-      "price": 2.89,
-      "description": "Pacote de biscoito cream cracker.",
-      "createdAt": "20/07/2023",
-      "updatedAt": "20/07/2023"
-    },
-    {
       "id": 345678,
       "name": "Chiclete Trident",
       "quantity": 5,
@@ -99,36 +89,6 @@
       "description": "Pacote de biscoito de água e sal.",
       "createdAt": "11/06/2023",
       "updatedAt": "11/06/2023"
-    },
-    {
-      "name": "Trident Morango",
-      "quantity": 3,
-      "price": 14.9,
-      "category": "chicle",
-      "description": "30un",
-      "createdAt": "31/07/2023",
-      "updatedAt": "31/07/2023",
-      "id": 888889
-    },
-    {
-      "name": "Biscoito Marsha",
-      "quantity": 15,
-      "price": 5.69,
-      "category": "biscoito",
-      "description": "350g",
-      "createdAt": "02/08/2023",
-      "updatedAt": "02/08/2023",
-      "id": 888890
-    },
-    {
-      "name": "Drops Halls",
-      "quantity": 16,
-      "price": 17.55,
-      "category": "bala",
-      "description": "30un",
-      "createdAt": "02/08/2023",
-      "updatedAt": "02/08/2023",
-      "id": 888891
     }
   ]
 }

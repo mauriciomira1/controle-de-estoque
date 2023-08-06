@@ -8,19 +8,21 @@ interface StockContextProviderProps {
 }
 
 interface ProductProps {
-  id?: number;
-  name: string;
-  quantity: number;
-  category: string;
-  price: number;
-  description: string;
-  createdAt?: string;
-  updatedAt?: string;
+  id?: number; // ID opcional, pois pode ser gerado pelo servidor
+  name: string; // O nome do produto
+  quantity: number; // A quantidade em estoque do produto
+  category: string; // A categoria do produto
+  price: number; // O preço do produto
+  description: string; // A descrição do produto
+  createdAt?: string; // A data de criação do produto (será gerada pelo servidor)
+  updatedAt?: string; // A data de atualização do produto (será atualizada pelo servidor)
 }
 
 export function StockContextProvider({ children }: StockContextProviderProps) {
+  // Define o estado para armazenar os itens do estoque
   const [items, setItems] = useState<ProductProps[]>();
 
+  // Função assíncrona que faz uma requisição GET para obter os dados do servidor
   const getData = async () => {
     const response = await axios.get<ProductProps[]>(
       "http://localhost:3000/products"
@@ -29,10 +31,12 @@ export function StockContextProvider({ children }: StockContextProviderProps) {
     setItems(response.data);
   };
 
+  // Executa a função getData apenas uma vez, quando o componente é montado
   useEffect(() => {
     void getData();
   }, []);
 
+  // Função para adicionar um novo item ao estoque
   const newItem = (item: ProductProps) => {
     const dateFormated = new Date().toLocaleString("pt-BR", {
       // Formata a data atual no formato "dd/MM/yyyy"
@@ -50,32 +54,33 @@ export function StockContextProvider({ children }: StockContextProviderProps) {
           "http://localhost:3000/products", // URL da API para adicionar produtos
           item // Dados do novo produto
         );
-        console.log("Novo produto criado com sucesso!");
-        void getData();
+        void getData(); // Atualiza os dados após a criação do novo produto
       } catch (error) {
         console.log("Criação de produto falhou!");
       }
     })();
   };
 
+  // Atualiza os dados após a criação do novo produto
   const deleteItem = (itemId: number) => {
     void (async () => {
       try {
         await axios.delete(`http://localhost:3000/products/${itemId}`);
-        void getData();
-        console.log("Produto excluído com sucesso!");
+        void getData(); // Atualiza os dados após a exclusão do produto
       } catch (error) {
         console.log("Exclusão de produto falhou!");
       }
     })();
   };
 
+  // Cria um objeto 'stock' contendo os itens e as funções para adicionar e excluir itens do estoque
   const stock = {
     items,
     newItem,
     deleteItem,
   };
 
+  // Renderiza o contexto, passando o objeto 'stock' como valor, para envolver os elementos filhos
   return (
     <StockContext.Provider value={stock}>{children}</StockContext.Provider>
   );
