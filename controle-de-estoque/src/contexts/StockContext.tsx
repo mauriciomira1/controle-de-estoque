@@ -10,7 +10,7 @@ interface StockContextProviderProps {
 interface ProductProps {
   id?: number; // ID opcional, pois pode ser gerado pelo servidor
   name: string; // O nome do produto
-  quantity: number; // A quantidade em estoque do produto
+  quantity: number; // A quantidade em estoque o produto
   category: string; // A categoria do produto
   price: number; // O preço do produto
   description: string; // A descrição do produto
@@ -21,6 +21,7 @@ interface ProductProps {
 export function StockContextProvider({ children }: StockContextProviderProps) {
   // Define o estado para armazenar os itens do estoque
   const [items, setItems] = useState<ProductProps[]>();
+  const [activeClass, setActiveClass] = useState("list");
 
   // Função assíncrona que faz uma requisição GET para obter os dados do servidor
   const getData = async () => {
@@ -61,6 +62,10 @@ export function StockContextProvider({ children }: StockContextProviderProps) {
     })();
   };
 
+  const getItem = async (itemId: number) => {
+    return await axios.get(`http://localhost:3000/products/${itemId}`);
+  };
+
   // Atualiza os dados após a criação do novo produto
   const deleteItem = (itemId: number) => {
     void (async () => {
@@ -73,13 +78,12 @@ export function StockContextProvider({ children }: StockContextProviderProps) {
     })();
   };
 
-  const UpdateItem = () => {};
-
   // Cria um objeto 'stock' contendo os itens e as funções para adicionar e excluir itens do estoque
   const stock = {
     items,
     newItem,
     deleteItem,
+    getItem,
   };
 
   // Renderiza o contexto, passando o objeto 'stock' como valor, para envolver os elementos filhos

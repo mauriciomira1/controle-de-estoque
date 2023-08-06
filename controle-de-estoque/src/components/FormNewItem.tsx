@@ -13,7 +13,11 @@ interface ProductProps {
   updatedAt: string;
 }
 
-const FormNewItem = (productToUpdate: ProductProps) => {
+const FormNewItem = ({
+  productToUpdate,
+}: {
+  productToUpdate: ProductProps;
+}) => {
   const { newItem } = useStock();
   const defaultProduct = {
     id: 0,

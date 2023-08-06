@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         element: <NewItem />,
       },
       {
-        path: "update-item", // Rota para a página de atualização de um item existente
+        path: ":productId/update-item", // Rota para a página de atualização de um item existente
         element: <UpdateItem />,
       },
     ],
