@@ -78,12 +78,17 @@ export function StockContextProvider({ children }: StockContextProviderProps) {
     })();
   };
 
+  const handleUpdate = () => {
+    return true;
+  };
+
   // Cria um objeto 'stock' contendo os itens e as funções para adicionar e excluir itens do estoque
   const stock = {
     items,
     newItem,
     deleteItem,
     getItem,
+    handleUpdate,
   };
 
   // Renderiza o contexto, passando o objeto 'stock' como valor, para envolver os elementos filhos

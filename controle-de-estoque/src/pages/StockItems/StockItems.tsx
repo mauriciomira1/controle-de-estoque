@@ -1,11 +1,17 @@
 import FormNewItem from "../../components/FormNewItem";
+import useStock from "../../hooks/useStock";
 import ItemsList from "../ItemsList/ItemsList"; // Importa o componente ItemsList que representa a lista de itens em estoque
 import { useState } from "react"; // Importa o hook useState do React para gerenciar o estado do componente
-import UpdateItem from "../updateItem/updateItem";
 
 const StockItems = () => {
   // Componente StockItems, responsável por exibir a página de itens em estoque
   const [activeClass, setActiveClass] = useState("list"); // Estado para controlar a classe ativa do menu de navegação
+
+  const { handleUpdate } = useStock();
+
+  if (handleUpdate === true) {
+    setActiveClass("new");
+  }
 
   return (
     <section className="flex flex-col w-full p-6">
