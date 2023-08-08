@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import useStock from "../hooks/useStock";
 import DeleteButton from "./DeleteButton";
-import UpdateItem from "../pages/updateItem/updateItem";
-/* import { useState } from "react"; */
-/* import FormNewItem from "./FormNewItem"; */
 
 interface ItemProps {
   id: number;
@@ -17,7 +14,7 @@ interface ItemProps {
 }
 
 const ItemsTable = () => {
-  const { items, handleUpdate } = useStock();
+  const { items } = useStock();
   /*   const [activeUpdate, setActiveUpdate] = useState(false); */
 
   return (
@@ -45,10 +42,7 @@ const ItemsTable = () => {
                 >
                   Ver
                 </Link>
-                <button
-                  className="px-2 py-1 rounded text-gray-950 font-semibold bg-gray-100 hover:opacity-90 duration-150"
-                  onClick={() => handleUpdate("new")}
-                >
+                <button className="px-2 py-1 rounded text-gray-950 font-semibold bg-gray-100 hover:opacity-90 duration-150">
                   Atualizar
                 </button>
                 <DeleteButton itemName={item.name} itemId={item.id} />

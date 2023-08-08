@@ -65,25 +65,22 @@ const Dashboard = () => {
       setListaItemsAcabando(novaListaItemsAcabando);
       setTotal(novaListaItemsAcabando.length);
       setDataLoaded(true);
+
+      +items.reduce((totalDeItems, item) => totalDeItems + item.quantity, 0);
+      let somador = 0;
+      items?.forEach((item) => {
+        somador += item.quantity;
+      });
+
+      console.log(typeof items[11].quantity);
+      console.log(typeof somador);
+      console.log(somador);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
   if (!dataLoaded) {
     return <div>Carregando...</div>;
   }
-
-  const minhasoma = +items.reduce(
-    (totalDeItems, item) => totalDeItems + item.quantity,
-    0
-  );
-  let somador = 0;
-  const soma02 = items?.forEach((item) => {
-    somador += item.quantity;
-  });
-
-  console.log(typeof items[11].quantity);
-  console.log(typeof somador);
-  console.log(somador);
 
   return (
     <>

@@ -16,6 +16,7 @@ interface StockHook {
   deleteItem?: (itemId: number) => void;
   items?: itemProps[];
   newItem?: (item: itemProps) => void;
+  getItem?: (itemId: number) => void;
 }
 
 const useStock = (): StockHook => {
