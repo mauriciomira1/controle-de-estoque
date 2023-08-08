@@ -21,7 +21,6 @@ interface ProductProps {
 export function StockContextProvider({ children }: StockContextProviderProps) {
   // Define o estado para armazenar os itens do estoque
   const [items, setItems] = useState<ProductProps[]>();
-  const [activeClass, setActiveClass] = useState("list");
 
   // Função assíncrona que faz uma requisição GET para obter os dados do servidor
   const getData = async () => {
@@ -78,8 +77,8 @@ export function StockContextProvider({ children }: StockContextProviderProps) {
     })();
   };
 
-  const handleUpdate = () => {
-    return true;
+  const handleUpdate = (state: string) => {
+    return state;
   };
 
   // Cria um objeto 'stock' contendo os itens e as funções para adicionar e excluir itens do estoque

@@ -47,7 +47,7 @@ const ItemsTable = () => {
                 </Link>
                 <button
                   className="px-2 py-1 rounded text-gray-950 font-semibold bg-gray-100 hover:opacity-90 duration-150"
-                  onClick={() => handleUpdate()}
+                  onClick={() => handleUpdate("new")}
                 >
                   Atualizar
                 </button>
