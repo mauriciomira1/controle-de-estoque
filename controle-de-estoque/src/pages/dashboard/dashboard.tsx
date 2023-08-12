@@ -66,15 +66,17 @@ const Dashboard = () => {
       setTotal(novaListaItemsAcabando.length);
       setDataLoaded(true);
 
-      +items.reduce((totalDeItems, item) => totalDeItems + item.quantity, 0);
-      let somador = 0;
+      const totalDeItems = +items.reduce(
+        (totalDeItems, item) => totalDeItems + item.quantity,
+        0
+      );
+
+      /*       let somador = 0;
       items?.forEach((item) => {
         somador += item.quantity;
-      });
+      }); */
 
-      console.log(typeof items[11].quantity);
-      console.log(typeof somador);
-      console.log(somador);
+      console.log(typeof items[2].quantity);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
