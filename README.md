@@ -8,7 +8,13 @@ Os produtos contém: Descrição, preço, nome, quantidade e categoria (criei al
 
 Para rodar instale: "npm i" e rode o "npm run server" para rodar o json-server que simula o banco de dados do servidor.
 
-## Foram utilizados:
+## Run
+```
+npm install
+npm run dev
+```
+
+## Tecnologias e bibliotecas:
 1) Typescript
 2) React (com hooks de useContext, useEffect, useState, etc)
 3) React router dom para facilitar as rotas
