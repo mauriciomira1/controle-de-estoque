@@ -11,6 +11,9 @@ Para rodar instale: "npm i" e rode o "npm run server" para rodar o json-server q
 ## Run
 ```
 npm install
+```
+
+```
 npm run dev
 ```
 
